@@ -226,7 +226,19 @@ CGFloat angles[3][3] = {
         {
             if (_CurrentAngle == 0.0f)
             {
-                
+                difference = 180.0f;
+            }
+            else if (_CurrentAngle == 90.0f)
+            {
+                difference = 180.0f;
+            }
+            else if (_CurrentAngle == 180.0f)
+            {
+                difference = -180.0f;
+            }
+            else if (_CurrentAngle == 270.0f)
+            {
+                difference = -180.0f;
             }
         }
         
