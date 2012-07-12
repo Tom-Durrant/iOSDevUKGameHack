@@ -12,12 +12,6 @@
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 
-typedef enum {
-    kModeBoth,
-    kModePlayer1,
-    kModePlayer2,
-} WGMode;
-
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate> {
     CCLabelTTF *_label;

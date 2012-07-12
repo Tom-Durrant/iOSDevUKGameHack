@@ -12,3 +12,15 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #endif
+
+typedef enum {
+    kModeBoth,
+    kModePlayer1,
+    kModePlayer2,
+} WGMode;
+
+typedef enum {
+    kChosePlayerMode,
+    kChoseLevel,
+    kDragonUpdate
+} WGDataType;
