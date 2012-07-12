@@ -44,11 +44,6 @@
                 playerType = kModePlayer2;
             } else playerType = kModePlayer1;
             
-            if (observingReceivedDataNotification) {
-                [[NSNotificationCenter defaultCenter] removeObserver:self];
-            }
-            observingReceivedDataNotification = NO;
-            
             [self performSegueWithIdentifier:@"ShowLevelChooserSegue" sender:self];
             
             UIView *otherPlayerChoseModeView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 480, 320)] autorelease];
@@ -93,9 +88,24 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedData:) name:@"didReceiveData" object:nil];
     observingReceivedDataNotification = YES;
+    
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (observingReceivedDataNotification) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+    observingReceivedDataNotification = NO;
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidUnload
@@ -116,6 +126,10 @@
     int number = kModePlayer2;
     [data appendBytes:&number length:sizeof(int)];
     [[GameSessionManager sharedManager] sendData:data];
+    
+    playerType = number;
+    
+    [self performSegueWithIdentifier:@"ShowLevelChooserSegue" sender:self];
 }
 
 - (void)leftRightButtonPressed:(id)sender
@@ -125,6 +139,10 @@
     int number = kModePlayer1;
     [data appendBytes:&number length:sizeof(int)];
     [[GameSessionManager sharedManager] sendData:data];
+    
+    playerType = number;
+    
+    [self performSegueWithIdentifier:@"ShowLevelChooserSegue" sender:self];
 }
 
 @end

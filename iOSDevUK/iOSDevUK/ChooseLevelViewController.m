@@ -9,6 +9,7 @@
 #import "ChooseLevelViewController.h"
 #import "GameSessionManager.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
 
 @interface ChooseLevelViewController () {
     bool observingReceivedDataNotification;
@@ -70,6 +71,7 @@
                 }];
             });
             
+            [((AppController *)[UIApplication sharedApplication].delegate) beginGameWithPlayerType:playerMode andLevelNumber:chosenLevel];
             //begin game.
         }
     }
@@ -102,6 +104,10 @@
     int number = sender.tag;
     [data appendBytes:&number length:sizeof(int)];
     [[GameSessionManager sharedManager] sendData:data];
+    
+    chosenLevel = number;
+    
+    [((AppController *)[UIApplication sharedApplication].delegate) beginGameWithPlayerType:playerMode andLevelNumber:chosenLevel];
 }
 
 @end
