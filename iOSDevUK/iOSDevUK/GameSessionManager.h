@@ -11,9 +11,9 @@
 
 @interface GameSessionManager : NSObject <GKPeerPickerControllerDelegate, GKSessionDelegate>
 
-@property (nonatomic, strong) GKSession *session;
-@property (nonatomic, strong) GKPeerPickerController *peerPicker;
-@property (nonatomic, strong) NSString *peerID;
+@property (nonatomic, retain) GKSession *session;
+@property (nonatomic, retain) GKPeerPickerController *peerPicker;
+@property (nonatomic, retain) NSString *peerID;
 
 @property (nonatomic) int tick;
 

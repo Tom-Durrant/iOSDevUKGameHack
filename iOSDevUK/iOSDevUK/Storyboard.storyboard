@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="bDX-rp-76t">
+    <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <development defaultVersion="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
+    </dependencies>
+    <scenes>
+        <!--Connect View Controller - iOSDevUK Dragon game thing-->
+        <scene sceneID="xoM-ie-uMD">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hxa-x6-mgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="PXz-6g-nyc" customClass="WGConnectViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jU1-mF-opy">
+                        <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ver-a2-OFz">
+                                <rect key="frame" x="470" y="365" width="85" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Connect">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="connectButtonPressed:" destination="PXz-6g-nyc" eventType="touchUpInside" id="E22-AI-GcQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="iOSDevUK Dragon game thing" id="q4X-cC-X96"/>
+                    <connections>
+                        <outlet property="connectButton" destination="Ver-a2-OFz" id="l3A-3A-XM5"/>
+                        <segue destination="vK2-09-I1O" kind="push" identifier="PushShowControlsSegue" id="PUw-7C-Z17"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1110" y="113"/>
+        </scene>
+        <!--Select Player Mode View Controller-->
+        <scene sceneID="cXv-Ug-tBe">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tr0-2i-XMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="vK2-09-I1O" customClass="WGSelectPlayerModeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XYW-46-l1k">
+                        <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7tH-oK-DWo">
+                                <rect key="frame" x="393" y="307" width="239" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Up and Down">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upDownButtonPressed:" destination="vK2-09-I1O" eventType="touchUpInside" id="YIt-rd-pz7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fer-5U-zPV">
+                                <rect key="frame" x="393" y="376" width="239" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Left and Right">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftRightButtonPressed:" destination="vK2-09-I1O" eventType="touchUpInside" id="dBS-h6-7wy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ARF-4d-wDZ"/>
+                    <connections>
+                        <outlet property="leftRightButton" destination="Fer-5U-zPV" id="5AP-bp-afh"/>
+                        <outlet property="upDownButton" destination="7tH-oK-DWo" id="OMg-56-TQt"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2480" y="-42"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ysH-9t-xmJ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LFL-0b-39T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="bDX-rp-76t" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HGn-qC-Fr8">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PXz-6g-nyc" kind="relationship" relationship="rootViewController" id="ClU-6q-Oew"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-120" y="113"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="WGConnectViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WGConnectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="connectButtonPressed:"/>
+                <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="WGSelectPlayerModeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WGSelectPlayerModeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="leftRightButtonPressed:"/>
+                <relationship kind="action" name="upDownButtonPressed:"/>
+                <relationship kind="outlet" name="leftRightButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="upDownButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <nil key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
