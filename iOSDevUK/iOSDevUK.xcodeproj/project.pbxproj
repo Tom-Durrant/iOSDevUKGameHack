@@ -135,6 +135,7 @@
 		1712BA3615AF47C30009D3B1 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1712BA3515AF47C30009D3B1 /* IntroLayer.m */; };
 		1712BA3E15AF4A600009D3B1 /* WGPlayer1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1712BA3D15AF4A600009D3B1 /* WGPlayer1.m */; };
 		1712BA4115AF4A710009D3B1 /* WGPlayer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1712BA4015AF4A710009D3B1 /* WGPlayer2.m */; };
+		17F3BCB615AF766D003C90F5 /* GameSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F3BCB515AF766D003C90F5 /* GameSessionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -404,6 +405,8 @@
 		1712BA3D15AF4A600009D3B1 /* WGPlayer1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGPlayer1.m; sourceTree = "<group>"; };
 		1712BA3F15AF4A710009D3B1 /* WGPlayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGPlayer2.h; sourceTree = "<group>"; };
 		1712BA4015AF4A710009D3B1 /* WGPlayer2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGPlayer2.m; sourceTree = "<group>"; };
+		17F3BCB415AF766D003C90F5 /* GameSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSessionManager.h; sourceTree = "<group>"; };
+		17F3BCB515AF766D003C90F5 /* GameSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSessionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,6 +475,8 @@
 				1712BA3D15AF4A600009D3B1 /* WGPlayer1.m */,
 				1712BA3F15AF4A710009D3B1 /* WGPlayer2.h */,
 				1712BA4015AF4A710009D3B1 /* WGPlayer2.m */,
+				17F3BCB415AF766D003C90F5 /* GameSessionManager.h */,
+				17F3BCB515AF766D003C90F5 /* GameSessionManager.m */,
 				1712B8B715AF47C10009D3B1 /* Resources */,
 				1712B8D115AF47C10009D3B1 /* libs */,
 				1712BA2A15AF47C30009D3B1 /* Supporting Files */,
@@ -1021,6 +1026,7 @@
 				1712BA3615AF47C30009D3B1 /* IntroLayer.m in Sources */,
 				1712BA3E15AF4A600009D3B1 /* WGPlayer1.m in Sources */,
 				1712BA4115AF4A710009D3B1 /* WGPlayer2.m in Sources */,
+				17F3BCB615AF766D003C90F5 /* GameSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,6 +1130,7 @@
 				1712BA3B15AF47C30009D3B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
