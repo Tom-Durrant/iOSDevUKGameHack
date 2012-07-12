@@ -80,10 +80,12 @@
         UIView *glView = [[CCDirector sharedDirector] openGLView];
         UIView *view;
         UIPanGestureRecognizer *pgr;
+        CGRect frame;
         
         // horizontal movement
         if(_mode != kModePlayer2) {
-            view = [[UIView alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 512.0f, 768.0f)];
+            frame = (_mode == kModeBoth) ? CGRectMake(0.0f, 0.0f, 512.0f, 768.0f) : CGRectMake(0.0f, 0.0f, 1024.0f, 768.0f);
+            view = [[UIView alloc] initWithFrame: frame];
             [view setBackgroundColor: [UIColor colorWithRed: 1.0f green: 0.0f blue: 0.0f alpha: 0.1f]];
             [glView addSubview: view]; [view release];
             pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panX:)];
@@ -92,7 +94,8 @@
     
         // vertical movement
         if(_mode != kModePlayer1) {
-            view = [[UIView alloc] initWithFrame: CGRectMake(512.0f, 0.0f, 512.0f, 768.0f)];
+            frame = (_mode == kModeBoth) ? CGRectMake(512.0f, 0.0f, 512.0f, 768.0f) : CGRectMake(0.0f, 0.0f, 1024.0f, 768.0f);
+            view = [[UIView alloc] initWithFrame: frame];
             [view setBackgroundColor: [UIColor colorWithRed: 0.0f green: 1.0f blue: 0.0f alpha: 0.1f]];
             [glView addSubview: view]; [view release];
             pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panY:)];
