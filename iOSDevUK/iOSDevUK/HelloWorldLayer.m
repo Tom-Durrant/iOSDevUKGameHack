@@ -214,7 +214,7 @@ CGFloat angles[3][3] = {
     }
     
     pos.x = cosf(CC_DEGREES_TO_RADIANS(_CurrentAngle)) * MOVEMENT_SPEED;
-    pos.y = sinf(CC_DEGREES_TO_RADIANS( _CurrentAngle)) * MOVEMENT_SPEED;
+    pos.y = -sinf(CC_DEGREES_TO_RADIANS( _CurrentAngle)) * MOVEMENT_SPEED;
     
     [_gameLayer moveCharacter: pos];
     
