@@ -15,24 +15,36 @@
 
 #import "WGPlayer1.h"
 #import "WGPlayer2.h"
+#import "GameSessionManager.h"
 
 #define STEP 1.0f
 #define SENSETIVITY 2.0f
 #define MAX_ANGLE_CHANGE 360.0f/64.0f
+#define MOVEMENT_SPEED 2.0f
 
 #pragma mark - HelloWorldLayer
+
+@interface HelloWorldLayer ()
+-(void)gotDataNotification:(NSNotification *)note;
+-(void)sendFloat:(CGFloat)f;
+@end
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
 
+@synthesize mode=_mode;
+
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene
-{
++(CCScene *) scene {
+    return [self sceneWithMode: kModeBoth];
+}
+
++(CCScene *)sceneWithMode:(WGMode)mode {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	HelloWorldLayer *layer = [[[HelloWorldLayer alloc] initWithMode: mode] autorelease];//[HelloWorldLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -42,12 +54,15 @@
 }
 
 // on "init" you need to initialize your instance
--(id) init
+//-(id) init 
+-(id)initWithMode:(WGMode)mode
 {
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
 		
+        _mode = mode;
+        
 		// create and initialize a Label
         _label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
 
@@ -110,20 +125,34 @@
         [self schedule: @selector(update:)];
 
         UIView *glView = [[CCDirector sharedDirector] openGLView];
+        UIView *view;
+        UIPanGestureRecognizer *pgr;
         
         // horizontal movement
-        UIView *view = [[UIView alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 512.0f, 768.0f)];
-        [view setBackgroundColor: [UIColor colorWithRed: 1.0f green: 0.0f blue: 0.0f alpha: 0.1f]];
-        [glView addSubview: view]; [view release];
-        UIPanGestureRecognizer *pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panX:)];
-        [view addGestureRecognizer: pgr]; [pgr release];
-        
+        if(_mode != kModePlayer2) {
+            view = [[UIView alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 512.0f, 768.0f)];
+            [view setBackgroundColor: [UIColor colorWithRed: 1.0f green: 0.0f blue: 0.0f alpha: 0.1f]];
+            [glView addSubview: view]; [view release];
+            pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panX:)];
+            [view addGestureRecognizer: pgr]; [pgr release];
+        }
+    
         // vertical movement
-        view = [[UIView alloc] initWithFrame: CGRectMake(512.0f, 0.0f, 512.0f, 768.0f)];
-        [view setBackgroundColor: [UIColor colorWithRed: 0.0f green: 1.0f blue: 0.0f alpha: 0.1f]];
-        [glView addSubview: view]; [view release];
-        pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panY:)];
-        [view addGestureRecognizer: pgr]; [pgr release];
+        if(_mode != kModePlayer1) {
+            view = [[UIView alloc] initWithFrame: CGRectMake(512.0f, 0.0f, 512.0f, 768.0f)];
+            [view setBackgroundColor: [UIColor colorWithRed: 0.0f green: 1.0f blue: 0.0f alpha: 0.1f]];
+            [glView addSubview: view]; [view release];
+            pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panY:)];
+            [view addGestureRecognizer: pgr]; [pgr release];
+        }
+        
+        // register for data notifications
+        if(_mode != kModeBoth) {
+            [[NSNotificationCenter defaultCenter] addObserver: self
+                                                     selector: @selector(gotDataNotification:)
+                                                         name: @"didReceiveData"
+                                                       object: nil];
+        }
         
         _vy = STEP;
 	}
@@ -132,6 +161,7 @@
 
 // on "dealloc" you need to release all your retained objects
 -(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     for(UIView *view in [[[CCDirector sharedDirector] openGLView] subviews]) {
         [view removeFromSuperview];
     }
@@ -191,6 +221,15 @@ CGFloat angles[3][3] = {
         if(difference < -180.0f) { difference += 360.0f; }
         else if(difference > 180.0f) { difference -= 360.0f; }
         
+        // Fix issue where 180 turns between 4 cardinal compass points
+        if (difference == 180.0f || difference == -180.0f)
+        {
+            if (_CurrentAngle == 0.0f)
+            {
+                
+            }
+        }
+        
         
         
     if (difference)
@@ -203,8 +242,8 @@ CGFloat angles[3][3] = {
         else if(_CurrentAngle > 360.0f) { _CurrentAngle -= 360.0f; }
     }
     
-    pos.x += cosf(CC_DEGREES_TO_RADIANS(_CurrentAngle));
-    pos.y -= sinf(CC_DEGREES_TO_RADIANS( _CurrentAngle));
+    pos.x += cosf(CC_DEGREES_TO_RADIANS(_CurrentAngle)) * MOVEMENT_SPEED;
+    pos.y -= sinf(CC_DEGREES_TO_RADIANS( _CurrentAngle)) * MOVEMENT_SPEED;
     
     [_label setRotation:_CurrentAngle];
 //    pos.x += _vx;
@@ -231,6 +270,7 @@ CGFloat angles[3][3] = {
             break;
     }
     [[WGPlayer1 shared] setDeltaX: delta];
+    if(_mode != kModeBoth) { [self sendFloat: delta]; }
 }
 
 -(void)panY:(UIGestureRecognizer *)gr {
@@ -250,8 +290,32 @@ CGFloat angles[3][3] = {
             break;
     }
     [[WGPlayer2 shared] setDeltaY: delta];
+    if(_mode != kModeBoth) { [self sendFloat: delta]; }
 }
 
+-(void)sendFloat:(CGFloat)f {
+    NSMutableData *data = [NSMutableData data];
+    [data appendBytes: &f length: sizeof(CGFloat)];
+    [[GameSessionManager sharedManager] sendData: data];
+}
+
+-(void)gotDataNotification:(NSNotification *)note {
+    if(_mode == kModeBoth) { return; } // shouldn't ever happen
+    NSData *data = (NSData *)[note object];
+    CGFloat f;
+    [data getBytes: &f length: sizeof(CGFloat)];
+    switch(_mode) {
+        case kModePlayer1:
+            [[WGPlayer2 shared] setDeltaY: f];
+            break;
+            
+        case kModePlayer2:
+            [[WGPlayer1 shared] setDeltaX: f];
+            break;
+            
+        default: break;
+    }
+}
 
 #pragma mark GameKit delegate
 
