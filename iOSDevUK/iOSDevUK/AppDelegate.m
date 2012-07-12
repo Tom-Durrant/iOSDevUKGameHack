@@ -17,21 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	// Create the main window
-	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	// make main window visible
-	[window_ makeKeyAndVisible];
 	
 	return YES;
 }
 
 - (void)beginGameWithPlayerType:(int)playerType andLevelNumber:(int)levelNumber
 {
+    
     // remove the current views
-    for (UIView *subView in window_.subviews) {
+    for (UIView *subView in self.window.subviews) {
         [subView removeFromSuperview];
     }
+    
+    // Create the main window
+	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Create an CCGLView with a RGB565 color buffer, and a depth buffer of 0-bits
 	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
@@ -95,6 +95,9 @@
 	// set the Navigation Controller as the root view controller
     //	[window_ addSubview:navController_.view];	// Generates flicker.
 	[window_ setRootViewController:navController_];
+    
+    // make main window visible
+	[window_ makeKeyAndVisible];
 }
 
 // Supported orientations: Landscape. Customize it for your own needs
