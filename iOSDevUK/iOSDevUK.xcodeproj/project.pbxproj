@@ -151,8 +151,11 @@
 		17F3BCB615AF766D003C90F5 /* GameSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F3BCB515AF766D003C90F5 /* GameSessionManager.m */; };
 		2B62CFE915AF7F94001D7835 /* WGSelectPlayerModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62CFE815AF7F94001D7835 /* WGSelectPlayerModeViewController.m */; };
 		2B62CFED15AF879F001D7835 /* ChooseLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62CFEC15AF879F001D7835 /* ChooseLevelViewController.m */; };
+		2B62D00215AF8C2F001D7835 /* ChooseLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62CFFD15AF8C2F001D7835 /* ChooseLevelViewController.m */; };
+		2B62D00315AF8C2F001D7835 /* WGConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62CFFF15AF8C2F001D7835 /* WGConnectViewController.m */; };
+		2B62D00415AF8C2F001D7835 /* WGSelectPlayerModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62D00115AF8C2F001D7835 /* WGSelectPlayerModeViewController.m */; };
+		2B62D00615AF8C36001D7835 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B62D00515AF8C36001D7835 /* Storyboard.storyboard */; };
 		2B74283A15AF7CDF00834F69 /* WGConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B74283915AF7CDF00834F69 /* WGConnectViewController.m */; };
-		2B74283C15AF7CF700834F69 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B74283B15AF7CF700834F69 /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -439,13 +442,16 @@
 		1712BA4015AF4A710009D3B1 /* WGPlayer2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGPlayer2.m; sourceTree = "<group>"; };
 		17F3BCB415AF766D003C90F5 /* GameSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSessionManager.h; sourceTree = "<group>"; };
 		17F3BCB515AF766D003C90F5 /* GameSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSessionManager.m; sourceTree = "<group>"; };
-		2B62CFE715AF7F94001D7835 /* WGSelectPlayerModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGSelectPlayerModeViewController.h; sourceTree = "<group>"; };
 		2B62CFE815AF7F94001D7835 /* WGSelectPlayerModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGSelectPlayerModeViewController.m; sourceTree = "<group>"; };
-		2B62CFEB15AF879F001D7835 /* ChooseLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLevelViewController.h; sourceTree = "<group>"; };
 		2B62CFEC15AF879F001D7835 /* ChooseLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLevelViewController.m; sourceTree = "<group>"; };
-		2B74283815AF7CDF00834F69 /* WGConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGConnectViewController.h; sourceTree = "<group>"; };
+		2B62CFFC15AF8C2F001D7835 /* ChooseLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLevelViewController.h; sourceTree = "<group>"; };
+		2B62CFFD15AF8C2F001D7835 /* ChooseLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLevelViewController.m; sourceTree = "<group>"; };
+		2B62CFFE15AF8C2F001D7835 /* WGConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGConnectViewController.h; sourceTree = "<group>"; };
+		2B62CFFF15AF8C2F001D7835 /* WGConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGConnectViewController.m; sourceTree = "<group>"; };
+		2B62D00015AF8C2F001D7835 /* WGSelectPlayerModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGSelectPlayerModeViewController.h; sourceTree = "<group>"; };
+		2B62D00115AF8C2F001D7835 /* WGSelectPlayerModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGSelectPlayerModeViewController.m; sourceTree = "<group>"; };
+		2B62D00515AF8C36001D7835 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		2B74283915AF7CDF00834F69 /* WGConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGConnectViewController.m; sourceTree = "<group>"; };
-		2B74283B15AF7CF700834F69 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,6 +544,7 @@
 				1712BA4015AF4A710009D3B1 /* WGPlayer2.m */,
 				17F3BCB415AF766D003C90F5 /* GameSessionManager.h */,
 				17F3BCB515AF766D003C90F5 /* GameSessionManager.m */,
+				2B62CFFA15AF8C1A001D7835 /* PreGameSetupViewControllers */,
 				1712B8B715AF47C10009D3B1 /* Resources */,
 				1712B8D115AF47C10009D3B1 /* libs */,
 				1712BA2A15AF47C30009D3B1 /* Supporting Files */,
@@ -909,18 +916,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2B74283615AF7CA400834F69 /* GameSetupViewControllers */ = {
+		2B62CFFA15AF8C1A001D7835 /* PreGameSetupViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2B74283B15AF7CF700834F69 /* Storyboard.storyboard */,
-				2B74283815AF7CDF00834F69 /* WGConnectViewController.h */,
-				2B74283915AF7CDF00834F69 /* WGConnectViewController.m */,
-				2B62CFE715AF7F94001D7835 /* WGSelectPlayerModeViewController.h */,
-				2B62CFE815AF7F94001D7835 /* WGSelectPlayerModeViewController.m */,
-				2B62CFEB15AF879F001D7835 /* ChooseLevelViewController.h */,
-				2B62CFEC15AF879F001D7835 /* ChooseLevelViewController.m */,
+				2B62D00515AF8C36001D7835 /* Storyboard.storyboard */,
+				2B62CFFC15AF8C2F001D7835 /* ChooseLevelViewController.h */,
+				2B62CFFD15AF8C2F001D7835 /* ChooseLevelViewController.m */,
+				2B62CFFE15AF8C2F001D7835 /* WGConnectViewController.h */,
+				2B62CFFF15AF8C2F001D7835 /* WGConnectViewController.m */,
+				2B62D00015AF8C2F001D7835 /* WGSelectPlayerModeViewController.h */,
+				2B62D00115AF8C2F001D7835 /* WGSelectPlayerModeViewController.m */,
 			);
-			name = GameSetupViewControllers;
+			name = PreGameSetupViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -997,6 +1004,7 @@
 				05E530BF15AF810C00CDEB7D /* maptiles.tps in Resources */,
 				05E530C015AF810C00CDEB7D /* right.png in Resources */,
 				05E530C115AF810C00CDEB7D /* up.png in Resources */,
+				2B62D00615AF8C36001D7835 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,6 +1127,9 @@
 				2B62CFED15AF879F001D7835 /* ChooseLevelViewController.m in Sources */,
 				05E530A815AF80E100CDEB7D /* GameLayer.m in Sources */,
 				05E530A915AF80E100CDEB7D /* MapLayer.m in Sources */,
+				2B62D00215AF8C2F001D7835 /* ChooseLevelViewController.m in Sources */,
+				2B62D00315AF8C2F001D7835 /* WGConnectViewController.m in Sources */,
+				2B62D00415AF8C2F001D7835 /* WGSelectPlayerModeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
