@@ -61,10 +61,26 @@
             otherPlayerChoseModeView.layer.cornerRadius = 10;
             otherPlayerChoseModeView.layer.borderColor = [[UIColor darkGrayColor] CGColor];
             otherPlayerChoseModeView.layer.borderWidth = 2;
+            otherPlayerChoseModeView.backgroundColor = [UIColor whiteColor];
+            
+            switch ([UIApplication sharedApplication].statusBarOrientation) {
+                case UIInterfaceOrientationLandscapeLeft:
+                    otherPlayerChoseModeView.transform = CGAffineTransformMakeRotation(M_PI_2 * 3);
+                    break;
+                case UIInterfaceOrientationLandscapeRight:
+                    otherPlayerChoseModeView.transform = CGAffineTransformMakeRotation(M_PI_2);
+                    break;
+                case UIInterfaceOrientationPortraitUpsideDown:
+                    otherPlayerChoseModeView.transform = CGAffineTransformMakeRotation(M_PI);
+                    break;
+                    
+                default:
+                    break;
+            }
             
             [window addSubview:otherPlayerChoseModeView];
             
-            double delayInSeconds = 1.5;
+            double delayInSeconds = 2;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 [UIView animateWithDuration:1 animations:^{

@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	
+//	[self beginGameWithPlayerType:1 andLevelNumber:1];
 	
 	return YES;
 }
