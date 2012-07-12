@@ -64,63 +64,16 @@
         _mode = mode;
         
 		// create and initialize a Label
-        _label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
+        //_label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 	
 		// position the label on the center of the screen
-		_label.position =  ccp( size.width /2 , size.height/2 );
+		//_label.position =  ccp( size.width /2 , size.height/2 );
 		
 		// add the label as a child to this Layer
-		[self addChild: _label z:9999];
-		
-		
-		
-		//
-		// Leaderboards and Achievements
-		//
-		
-		// Default font size will be 28 points.
-		[CCMenuItemFont setFontSize:28];
-		
-		// Achievement Menu Item using blocks
-		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-			
-			
-			GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
-			achivementViewController.achievementDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:achivementViewController animated:YES];
-			
-			[achivementViewController release];
-		}
-									   ];
-
-		// Leaderboard Menu Item using blocks
-		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-			
-			
-			GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-			leaderboardViewController.leaderboardDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
-			
-			[leaderboardViewController release];
-		}
-									   ];
-		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
-		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
-		
-		// Add the menu to the layer
-		[self addChild:menu];
+		//[self addChild: _label z:9999];
         
         [self schedule: @selector(update:)];
 
@@ -158,8 +111,8 @@
 	}
 
     // Add the game layer in
-    GameLayer *gameLayer = [GameLayer setupWithData];
-    [self addChild:gameLayer z:100 tag:666];
+    _gameLayer = [GameLayer setupWithData];
+    [self addChild: _gameLayer z:100 tag:666];
 
 	return self;
 }
@@ -200,19 +153,19 @@ CGFloat angles[3][3] = {
     
     
     
-    CGPoint pos = _label.position;
+    CGPoint pos = CGPointZero; // because _label.position;
     CGFloat dx = [[WGPlayer1 shared] deltaX];
     CGFloat dy = [[WGPlayer2 shared] deltaY];
     int x = (dx < 0.0f) ? 0 : ((dx > 0.0f) ? 2 : 1);
     int y = (dy < 0.0f) ? 0 : ((dy > 0.0f) ? 2 : 1);
     CGFloat angle = angles[x][y] - 90.0f;
-    [_label setString: [NSString stringWithFormat: @"%f", angle]];
+    //[_label setString: [NSString stringWithFormat: @"%f", angle]];
 
     if(!isnan(angle)) {
         CGFloat change = 0.0f;
         
-        CGFloat normalisedCurrentAngle = _CurrentAngle;
-        CGFloat normalisedGoToAngle = angle;
+        //CGFloat normalisedCurrentAngle = _CurrentAngle;
+        //CGFloat normalisedGoToAngle = angle;
     
         /*
     if (normalisedGoToAngle > 180)
@@ -260,13 +213,15 @@ CGFloat angles[3][3] = {
         else if(_CurrentAngle > 360.0f) { _CurrentAngle -= 360.0f; }
     }
     
-    pos.x += cosf(CC_DEGREES_TO_RADIANS(_CurrentAngle)) * MOVEMENT_SPEED;
-    pos.y -= sinf(CC_DEGREES_TO_RADIANS( _CurrentAngle)) * MOVEMENT_SPEED;
+    pos.x = cosf(CC_DEGREES_TO_RADIANS(_CurrentAngle)) * MOVEMENT_SPEED;
+    pos.y = sinf(CC_DEGREES_TO_RADIANS( _CurrentAngle)) * MOVEMENT_SPEED;
     
-    [_label setRotation:_CurrentAngle];
-//    pos.x += _vx;
-//    pos.y += _vy;
-    _label.position = pos;
+    [_gameLayer moveCharacter: pos];
+    
+    //[_label setRotation:_CurrentAngle];
+    [[_gameLayer dragon] setRotation: _CurrentAngle + 90.0f];
+    
+    //_label.position = pos;
 
 }
 

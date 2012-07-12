@@ -13,6 +13,8 @@
 #import "cocos2d.h"
 #import "GameLayer.h"
 
+@class GameLayer;
+
 typedef enum {
     kModeBoth,
     kModePlayer1,
@@ -21,10 +23,12 @@ typedef enum {
 
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate> {
-    CCLabelTTF *_label;
+    //CCLabelTTF *_label;
     CGFloat _vx, _vy;
     CGFloat _CurrentAngle;
     WGMode _mode;
+    
+    GameLayer *_gameLayer;
 }
 
 @property WGMode mode;

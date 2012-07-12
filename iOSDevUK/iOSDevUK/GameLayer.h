@@ -29,8 +29,14 @@ typedef enum {
     
     NSInteger tagMap, tagDragon;
     NSInteger tagLeft, tagRight, tagDown, tagUp;
+    
+    CCSprite *_dragon;
 }
 
+@property (readonly) CCSprite *dragon;
+
 +(id)setupWithData;
+
+-(void)moveCharacter:(CGPoint)direction;
 
 @end

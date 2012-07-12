@@ -11,6 +11,8 @@
 
 @implementation GameLayer
 
+@synthesize dragon=_dragon;
+
 /*-----------------------------------------------------------------------------------------------
  * Get the next sprite tag
  *-----------------------------------------------------------------------------------------------*/ 
@@ -24,9 +26,9 @@
 /*-----------------------------------------------------------------------------------------------
  * Move the dragon
  *-----------------------------------------------------------------------------------------------*/ 
--(void)moveCharacter:(CGPoint)direction{
+-(void)moveCharacter:(CGPoint)direction {
     
-    [mapLayer scrollMapInGivenDirection:ccpMult(direction, 10)];
+    [mapLayer scrollMapInGivenDirection: direction];
     
     // Get the map location for the character
     CCSprite *character = (CCSprite *)[self getChildByTag:tagDragon];
@@ -132,9 +134,9 @@
     batchNode = [CCSpriteBatchNode batchNodeWithFile:@"dragon images.png"];
 
     // Create the dragon sprite
-    CCSprite *dragon = [CCSprite spriteWithSpriteFrameName:@"dragon1.png"];
-    dragon.anchorPoint = ccp(1, 1);
-    dragon.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+    _dragon = [CCSprite spriteWithSpriteFrameName:@"dragon1.png"];
+    _dragon.anchorPoint = ccp(1, 1);
+    _dragon.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
     // Create the animation
     NSMutableArray *frameArray = [[NSMutableArray alloc]init];
@@ -153,10 +155,10 @@
     CCAnimation *animation = [CCAnimation animationWithFrames:frameArray delay:1.0/12.0];
     CCAnimate *animateAction = [CCAnimate actionWithAnimation:animation];
     
-    [dragon runAction:[CCRepeatForever actionWithAction:animateAction]];
+    [_dragon runAction:[CCRepeatForever actionWithAction:animateAction]];
     
     tagDragon = [self nextTag];
-	[self addChild:dragon z:kGameLevelDragon tag:tagDragon];
+	[self addChild: _dragon z:kGameLevelDragon tag:tagDragon];
     
     [self addControls];
 }
