@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="maptiles" tilewidth="32" tileheight="32" spacing="4">
+  <tileoffset x="2" y="2"/>
+  <image source="maptiles.png" width="128" height="256"/>
+ </tileset>
+ <layer name="background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKH7/qWXY6DgqqmqqqqqqqqqqurzBwHpCcU=
+  </data>
+ </layer>
+ <layer name="walls" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztmUEOgCAMBDnC/z/sxYsEkcKWrrqTcBIpk7YkSkpCCPFN8jneSm6Mp+e9+Sy09sW61x7y4EIeXHzFQ/yDEr0BEGiPAhozcRHMxkcxGpu9/t7qUddghId1LVTPoWvfI7de+ejNl8f6muweo1h7hNXDGp/Zw4KlXneelVYiznMP2PcnrqjuuJAHF+jv0Kg+Uz5i167x/BeK8Bi9Vxq5h5p19czHnYdHX8rjmbv7glWP3Wetl0eL+l2kV6QHEnlwwepxACMtCQA=
+  </data>
+ </layer>
+ <layer name="treasure" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2bENwCAMAEGUOoT9t80CSEABGHRXuvrKhZ0Styu7AxreyiwvrwCY59kd0MnuBQAAAACIa+SG+02rACKo/djhJqf8V4nrB/DAAGE=
+  </data>
+ </layer>
+ <layer name="enemies" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2cEJACAMBDBB95/Zr4JPsaUmExyHVqitcdKjAxSm292IDvARXUMN3hEAAAAAgPqy/etkyxPJnv4+nZLFehbNvbvc87cm9FYAKg==
+  </data>
+ </layer>
+ <objectgroup name="special" width="50" height="50">
+  <object name="start" x="513" y="395" width="32" height="32"/>
+  <object name="goal" x="855" y="32" width="32" height="32"/>
+ </objectgroup>
+</map>

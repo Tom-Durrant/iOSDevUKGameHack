@@ -11,13 +11,18 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+#import "GameLayer.h"
+
+@class GameLayer;
 
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate> {
-    CCLabelTTF *_label;
+    //CCLabelTTF *_label;
     CGFloat _vx, _vy;
     CGFloat _CurrentAngle;
     WGMode _mode;
+    
+    GameLayer *_gameLayer;
 }
 
 @property WGMode mode;
