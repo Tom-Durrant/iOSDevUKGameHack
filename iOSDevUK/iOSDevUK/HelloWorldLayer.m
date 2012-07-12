@@ -73,7 +73,7 @@
 		_label.position =  ccp( size.width /2 , size.height/2 );
 		
 		// add the label as a child to this Layer
-		[self addChild: _label];
+		[self addChild: _label z:9999];
 		
 		
 		
@@ -197,6 +197,7 @@ CGFloat angles[3][3] = {
     pos.x += _vx;
     pos.y += _vy;
     _label.position = pos;*/
+    
     
     
     CGPoint pos = _label.position;
