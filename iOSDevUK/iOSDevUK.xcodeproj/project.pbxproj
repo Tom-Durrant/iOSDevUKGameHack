@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05E530A815AF80E100CDEB7D /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E530A515AF80E100CDEB7D /* GameLayer.m */; };
+		05E530A915AF80E100CDEB7D /* MapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E530A715AF80E100CDEB7D /* MapLayer.m */; };
+		05E530B715AF810C00CDEB7D /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E530AC15AF810C00CDEB7D /* down.png */; };
+		05E530B815AF810C00CDEB7D /* dragon images.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05E530AD15AF810C00CDEB7D /* dragon images.plist */; };
+		05E530B915AF810C00CDEB7D /* dragon images.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E530AE15AF810C00CDEB7D /* dragon images.png */; };
+		05E530BA15AF810C00CDEB7D /* dragon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E530AF15AF810C00CDEB7D /* dragon.png */; };
+		05E530BB15AF810C00CDEB7D /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E530B015AF810C00CDEB7D /* left.png */; };
+		05E530BC15AF810C00CDEB7D /* level0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 05E530B115AF810C00CDEB7D /* level0.tmx */; };
+		05E530BD15AF810C00CDEB7D /* maptiles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05E530B215AF810C00CDEB7D /* maptiles.plist */; };
+		05E530BE15AF810C00CDEB7D /* maptiles.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E530B315AF810C00CDEB7D /* maptiles.png */; };
+		05E530BF15AF810C00CDEB7D /* maptiles.tps in Resources */ = {isa = PBXBuildFile; fileRef = 05E530B415AF810C00CDEB7D /* maptiles.tps */; };
+		05E530C015AF810C00CDEB7D /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E530B515AF810C00CDEB7D /* right.png */; };
+		05E530C115AF810C00CDEB7D /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E530B615AF810C00CDEB7D /* up.png */; };
 		1712B8A515AF47C10009D3B1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1712B8A415AF47C10009D3B1 /* QuartzCore.framework */; };
 		1712B8A715AF47C10009D3B1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1712B8A615AF47C10009D3B1 /* OpenGLES.framework */; };
 		1712B8A915AF47C10009D3B1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1712B8A815AF47C10009D3B1 /* OpenAL.framework */; };
@@ -143,6 +156,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05E530A415AF80E100CDEB7D /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		05E530A515AF80E100CDEB7D /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		05E530A615AF80E100CDEB7D /* MapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLayer.h; sourceTree = "<group>"; };
+		05E530A715AF80E100CDEB7D /* MapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLayer.m; sourceTree = "<group>"; };
+		05E530AC15AF810C00CDEB7D /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = down.png; path = Resources/down.png; sourceTree = "<group>"; };
+		05E530AD15AF810C00CDEB7D /* dragon images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "dragon images.plist"; path = "Resources/dragon images.plist"; sourceTree = "<group>"; };
+		05E530AE15AF810C00CDEB7D /* dragon images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dragon images.png"; path = "Resources/dragon images.png"; sourceTree = "<group>"; };
+		05E530AF15AF810C00CDEB7D /* dragon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragon.png; path = Resources/dragon.png; sourceTree = "<group>"; };
+		05E530B015AF810C00CDEB7D /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = Resources/left.png; sourceTree = "<group>"; };
+		05E530B115AF810C00CDEB7D /* level0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level0.tmx; path = Resources/level0.tmx; sourceTree = "<group>"; };
+		05E530B215AF810C00CDEB7D /* maptiles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = maptiles.plist; path = Resources/maptiles.plist; sourceTree = "<group>"; };
+		05E530B315AF810C00CDEB7D /* maptiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = maptiles.png; path = Resources/maptiles.png; sourceTree = "<group>"; };
+		05E530B415AF810C00CDEB7D /* maptiles.tps */ = {isa = PBXFileReference; lastKnownFileType = file; name = maptiles.tps; path = Resources/maptiles.tps; sourceTree = "<group>"; };
+		05E530B515AF810C00CDEB7D /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right.png; path = Resources/right.png; sourceTree = "<group>"; };
+		05E530B615AF810C00CDEB7D /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = up.png; path = Resources/up.png; sourceTree = "<group>"; };
 		1712B8A015AF47C10009D3B1 /* iOSDevUK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDevUK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1712B8A415AF47C10009D3B1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1712B8A615AF47C10009D3B1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -440,6 +468,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05E530AB15AF80E700CDEB7D /* Game Resources */ = {
+			isa = PBXGroup;
+			children = (
+				05E530AC15AF810C00CDEB7D /* down.png */,
+				05E530AD15AF810C00CDEB7D /* dragon images.plist */,
+				05E530AE15AF810C00CDEB7D /* dragon images.png */,
+				05E530AF15AF810C00CDEB7D /* dragon.png */,
+				05E530B015AF810C00CDEB7D /* left.png */,
+				05E530B115AF810C00CDEB7D /* level0.tmx */,
+				05E530B215AF810C00CDEB7D /* maptiles.plist */,
+				05E530B315AF810C00CDEB7D /* maptiles.png */,
+				05E530B415AF810C00CDEB7D /* maptiles.tps */,
+				05E530B515AF810C00CDEB7D /* right.png */,
+				05E530B615AF810C00CDEB7D /* up.png */,
+			);
+			name = "Game Resources";
+			sourceTree = "<group>";
+		};
 		1712B89515AF47C10009D3B1 = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +522,10 @@
 		1712B8B615AF47C10009D3B1 /* iOSDevUK */ = {
 			isa = PBXGroup;
 			children = (
+				05E530A415AF80E100CDEB7D /* GameLayer.h */,
+				05E530A515AF80E100CDEB7D /* GameLayer.m */,
+				05E530A615AF80E100CDEB7D /* MapLayer.h */,
+				05E530A715AF80E100CDEB7D /* MapLayer.m */,
 				1712BA2E15AF47C30009D3B1 /* AppDelegate.h */,
 				1712BA2F15AF47C30009D3B1 /* AppDelegate.m */,
 				1712BA3115AF47C30009D3B1 /* HelloWorldLayer.h */,
@@ -488,7 +538,6 @@
 				1712BA4015AF4A710009D3B1 /* WGPlayer2.m */,
 				17F3BCB415AF766D003C90F5 /* GameSessionManager.h */,
 				17F3BCB515AF766D003C90F5 /* GameSessionManager.m */,
-				2B74283615AF7CA400834F69 /* GameSetupViewControllers */,
 				1712B8B715AF47C10009D3B1 /* Resources */,
 				1712B8D115AF47C10009D3B1 /* libs */,
 				1712BA2A15AF47C30009D3B1 /* Supporting Files */,
@@ -499,6 +548,7 @@
 		1712B8B715AF47C10009D3B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				05E530AB15AF80E700CDEB7D /* Game Resources */,
 				1712B8B815AF47C10009D3B1 /* Default.png */,
 				1712B8BA15AF47C10009D3B1 /* Default-Landscape~ipad.png */,
 				1712B8BC15AF47C10009D3B1 /* fps_images.png */,
@@ -936,7 +986,17 @@
 				1712B8CD15AF47C10009D3B1 /* Icon@2x.png in Resources */,
 				1712B8D015AF47C10009D3B1 /* iTunesArtwork in Resources */,
 				1712BA0E15AF47C30009D3B1 /* ChangeLog in Resources */,
-				2B74283C15AF7CF700834F69 /* Storyboard.storyboard in Resources */,
+				05E530B715AF810C00CDEB7D /* down.png in Resources */,
+				05E530B815AF810C00CDEB7D /* dragon images.plist in Resources */,
+				05E530B915AF810C00CDEB7D /* dragon images.png in Resources */,
+				05E530BA15AF810C00CDEB7D /* dragon.png in Resources */,
+				05E530BB15AF810C00CDEB7D /* left.png in Resources */,
+				05E530BC15AF810C00CDEB7D /* level0.tmx in Resources */,
+				05E530BD15AF810C00CDEB7D /* maptiles.plist in Resources */,
+				05E530BE15AF810C00CDEB7D /* maptiles.png in Resources */,
+				05E530BF15AF810C00CDEB7D /* maptiles.tps in Resources */,
+				05E530C015AF810C00CDEB7D /* right.png in Resources */,
+				05E530C115AF810C00CDEB7D /* up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1117,8 @@
 				2B74283A15AF7CDF00834F69 /* WGConnectViewController.m in Sources */,
 				2B62CFE915AF7F94001D7835 /* WGSelectPlayerModeViewController.m in Sources */,
 				2B62CFED15AF879F001D7835 /* ChooseLevelViewController.m in Sources */,
+				05E530A815AF80E100CDEB7D /* GameLayer.m in Sources */,
+				05E530A915AF80E100CDEB7D /* MapLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
