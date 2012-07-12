@@ -139,7 +139,7 @@ CGFloat angles[3][3] = {
 };
 
 -(void)update:(ccTime)delta {
-/*    CGPoint pos = _label.position;
+
     CGFloat f;
     if(0.0f != (f = [[WGPlayer1 shared] deltaX])) {
         _vx = f;
@@ -147,12 +147,11 @@ CGFloat angles[3][3] = {
     if(0.0f != (f = [[WGPlayer2 shared] deltaY])) {
         _vy = f;
     }
-    pos.x += _vx;
-    pos.y += _vy;
-    _label.position = pos;*/
     
-    
-    
+    [_gameLayer moveCharacter: CGPointMake(_vx,_vy)];
+//    [[_gameLayer dragon] setRotation: _CurrentAngle + 90.0f];
+
+/*
     CGPoint pos = CGPointZero; // because _label.position;
     CGFloat dx = [[WGPlayer1 shared] deltaX];
     CGFloat dy = [[WGPlayer2 shared] deltaY];
@@ -163,18 +162,6 @@ CGFloat angles[3][3] = {
 
     if(!isnan(angle)) {
         CGFloat change = 0.0f;
-        
-        //CGFloat normalisedCurrentAngle = _CurrentAngle;
-        //CGFloat normalisedGoToAngle = angle;
-    
-        /*
-    if (normalisedGoToAngle > 180)
-        normalisedGoToAngle -= 360;
-    if (normalisedCurrentAngle > 180)
-        normalisedCurrentAngle -= 360;
-    
-    CGFloat difference = normalisedGoToAngle - normalisedCurrentAngle;
-        */
         
         CGFloat difference = angle - _CurrentAngle;
         if(difference < -180.0f) { difference += 360.0f; }
@@ -217,12 +204,8 @@ CGFloat angles[3][3] = {
     pos.y = -sinf(CC_DEGREES_TO_RADIANS( _CurrentAngle)) * MOVEMENT_SPEED;
     
     [_gameLayer moveCharacter: pos];
-    
-    //[_label setRotation:_CurrentAngle];
     [[_gameLayer dragon] setRotation: _CurrentAngle + 90.0f];
-    
-    //_label.position = pos;
-
+*/
 }
 
 
