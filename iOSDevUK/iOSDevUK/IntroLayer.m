@@ -27,7 +27,7 @@
 	IntroLayer *layer = [IntroLayer node];
 	
 	// add layer as a child to scene
-	[scene addChild: layer];
+	[scene addChild: layer z:0 tag:1111];
 	
 	// return the scene
 	return scene;
@@ -52,10 +52,11 @@
 	background.position = ccp(size.width/2, size.height/2);
 
 	// add the label as a child to this Layer
-	[self addChild: background];
+	[self addChild: background z:1 tag:123];
 	
 	// In one second transition to the new scene
 	[self scheduleOnce:@selector(makeTransition:) delay:1];
+    
 }
 
 -(void) makeTransition:(ccTime)dt

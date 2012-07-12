@@ -156,6 +156,11 @@
         
         _vy = STEP;
 	}
+
+    // Add the game layer in
+    GameLayer *gameLayer = [GameLayer setupWithData];
+    [self addChild:gameLayer z:100 tag:666];
+
 	return self;
 }
 
