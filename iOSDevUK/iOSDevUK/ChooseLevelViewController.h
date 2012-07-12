@@ -10,6 +10,8 @@
 
 @interface ChooseLevelViewController : UIViewController
 
-@property int playerMode;
+@property int playerMode, chosenLevel;
+
+- (IBAction)levelButtonPressed:(UIButton *)sender;
 
 @end

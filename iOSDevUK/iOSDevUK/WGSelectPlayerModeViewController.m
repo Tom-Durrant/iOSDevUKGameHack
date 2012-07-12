@@ -9,6 +9,7 @@
 #import "WGSelectPlayerModeViewController.h"
 #import "GameSessionManager.h"
 #import "ChooseLevelViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WGSelectPlayerModeViewController () {
     bool observingReceivedDataNotification;
@@ -36,7 +37,7 @@
     NSData *data = notification.object;
     if ([data isKindOfClass:[NSData class]]) {
         int type = ((int *)[data bytes])[0];
-        if (type == kChoseLevel) {
+        if (type == kChosePlayerMode) {
             int number = ((int *)[data bytes])[1];
             
             if (number == kModePlayer1) {
@@ -49,6 +50,34 @@
             observingReceivedDataNotification = NO;
             
             [self performSegueWithIdentifier:@"ShowLevelChooserSegue" sender:self];
+            
+            UIView *otherPlayerChoseModeView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 480, 320)] autorelease];
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            otherPlayerChoseModeView.center = window.center;
+            
+            UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(50, 50, 380, 220)] autorelease];
+            label.textAlignment = UITextAlignmentCenter;
+            label.numberOfLines = 0;
+            NSString *string1 = number == kModePlayer1 ? @"'Left and Right'" : @"'Up and Down'";
+            NSString *string2 = playerType == kModePlayer1 ? @"'Left and Right'" : @"'Up and Down'";
+            label.text = [NSString stringWithFormat:@"Your friend chose %@, so you're now %@", string1, string2];
+            [otherPlayerChoseModeView addSubview:label];
+            
+            otherPlayerChoseModeView.layer.cornerRadius = 10;
+            otherPlayerChoseModeView.layer.borderColor = [[UIColor darkGrayColor] CGColor];
+            otherPlayerChoseModeView.layer.borderWidth = 2;
+            
+            [window addSubview:otherPlayerChoseModeView];
+            
+            double delayInSeconds = 1.5;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [UIView animateWithDuration:1 animations:^{
+                    otherPlayerChoseModeView.alpha = 0;
+                } completion:^(BOOL finished) {
+                    [otherPlayerChoseModeView removeFromSuperview];
+                }];
+            });
         }
     }
 }
@@ -65,7 +94,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedData:) name:@"didConnect" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedData:) name:@"didReceiveData" object:nil];
     observingReceivedDataNotification = YES;
 }
 

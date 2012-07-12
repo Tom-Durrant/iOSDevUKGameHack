@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="bDX-rp-76t">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
+        <development version="4200" defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
@@ -96,16 +96,16 @@
             </objects>
             <point key="canvasLocation" x="2480" y="-42"/>
         </scene>
-        <!--View Controller - Choose a Level-->
+        <!--Choose Level View Controller - Choose a Level-->
         <scene sceneID="dG8-mc-tRZ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUd-98-lzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="dH5-ea-QVi" sceneMemberID="viewController">
+                <viewController id="dH5-ea-QVi" customClass="ChooseLevelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vtv-FR-zSR">
                         <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BUT-Qp-eyP">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BUT-Qp-eyP">
                                 <rect key="frame" x="145" y="212" width="75" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -116,8 +116,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="levelButtonPressed:" destination="dH5-ea-QVi" eventType="touchUpInside" id="5gI-YG-Ffv"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M7T-2L-L36">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M7T-2L-L36">
                                 <rect key="frame" x="475" y="212" width="75" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -128,8 +131,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="levelButtonPressed:" destination="dH5-ea-QVi" eventType="touchUpInside" id="13x-BU-vaR"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dx5-9j-xVH">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dx5-9j-xVH">
                                 <rect key="frame" x="845" y="212" width="75" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -140,6 +146,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="levelButtonPressed:" destination="dH5-ea-QVi" eventType="touchUpInside" id="mvp-Yk-dCU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -170,6 +179,12 @@
         </scene>
     </scenes>
     <classes>
+        <class className="ChooseLevelViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseLevelViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="levelButtonPressed:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
         <class className="WGConnectViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WGConnectViewController.h"/>
             <relationships>
