@@ -44,6 +44,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIImageView *imageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default-Landscape~ipad"]] autorelease];
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    imageView.frame = window.rootViewController.view.bounds;
+    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [window.rootViewController.view addSubview:imageView];
+    
+    [UIView animateWithDuration:4 animations:^{
+        imageView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [imageView removeFromSuperview];
+    }];
 }
 
 - (void)viewDidUnload
