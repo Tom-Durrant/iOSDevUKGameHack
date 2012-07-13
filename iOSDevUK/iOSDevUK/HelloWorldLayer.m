@@ -86,20 +86,27 @@
         if(_mode != kModePlayer2) {
             frame = (_mode == kModeBoth) ? CGRectMake(0.0f, 0.0f, 512.0f, 768.0f) : CGRectMake(0.0f, 0.0f, 1024.0f, 768.0f);
             view = [[UIView alloc] initWithFrame: frame];
-            [view setBackgroundColor: [UIColor colorWithRed: 1.0f green: 0.0f blue: 0.0f alpha: 0.1f]];
+            //[view setBackgroundColor: [UIColor colorWithRed: 1.0f green: 0.0f blue: 0.0f alpha: 0.1f]];
             [glView addSubview: view]; [view release];
             pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panX:)];
             [view addGestureRecognizer: pgr]; [pgr release];
+            _arrowLeftRight = [CCSprite spriteWithFile: @"arrows.png"];
+            [self addChild: _arrowLeftRight z: 101];
+            [_arrowLeftRight setRotation: 90.0f];
+            [_arrowLeftRight setOpacity: 0];
         }
     
         // vertical movement
         if(_mode != kModePlayer1) {
             frame = (_mode == kModeBoth) ? CGRectMake(512.0f, 0.0f, 512.0f, 768.0f) : CGRectMake(0.0f, 0.0f, 1024.0f, 768.0f);
             view = [[UIView alloc] initWithFrame: frame];
-            [view setBackgroundColor: [UIColor colorWithRed: 0.0f green: 1.0f blue: 0.0f alpha: 0.1f]];
+            //[view setBackgroundColor: [UIColor colorWithRed: 0.0f green: 1.0f blue: 0.0f alpha: 0.1f]];
             [glView addSubview: view]; [view release];
             pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panY:)];
             [view addGestureRecognizer: pgr]; [pgr release];
+            _arrowUpDown = [CCSprite spriteWithFile: @"arrows.png"];
+            [self addChild: _arrowUpDown z: 101];
+            [_arrowUpDown setOpacity: 0];
         }
         
         // register for data notifications
@@ -216,16 +223,25 @@ CGFloat angles[3][3] = {
 
 
 -(void)panX:(UIGestureRecognizer *)gr {
+    CGPoint point;
     CGFloat delta = 0.0f;
     UIView *view = [[CCDirector sharedDirector] openGLView];
     switch([gr state]) {
         case UIGestureRecognizerStateChanged:
-            //delta = [(UIPanGestureRecognizer *)gr velocityInView: view].x;
+            [_arrowLeftRight setOpacity: 255];
+            point = [gr locationInView: view];
+            point.y = 768.0f - point.y;
+            [_arrowLeftRight setPosition: point];
+
             delta = [(UIPanGestureRecognizer *)gr translationInView: view].x;
-            //[(UIPanGestureRecognizer *)gr setTranslation: CGPointZero inView: view];
             if(delta < -SENSETIVITY) { delta = -STEP; }
             else if(delta > SENSETIVITY) { delta = STEP; }
             else { delta = 0.0f; }
+            break;
+            
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+            [_arrowLeftRight setOpacity: 0];
             break;
             
         default:
@@ -236,18 +252,27 @@ CGFloat angles[3][3] = {
 }
 
 -(void)panY:(UIGestureRecognizer *)gr {
+    CGPoint point;
     CGFloat delta = 0.0f;
     UIView *view = [[CCDirector sharedDirector] openGLView];
     switch([gr state]) {
         case UIGestureRecognizerStateChanged:
-            //delta = [(UIPanGestureRecognizer *)gr velocityInView: view].y;
+            [_arrowUpDown setOpacity: 255];
+            point = [gr locationInView: view];
+            point.y = 768.0f - point.y;
+            [_arrowUpDown setPosition: point];
+
             delta = [(UIPanGestureRecognizer *)gr translationInView: view].y;
-            //[(UIPanGestureRecognizer *)gr setTranslation: CGPointZero inView: view];
             if(delta < -SENSETIVITY) { delta = STEP; }
             else if(delta > SENSETIVITY) { delta = -STEP; }
             else { delta = 0.0f; }
             break;
-            
+
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+            [_arrowUpDown setOpacity: 0];
+            break;
+
         default:
             break;
     }
