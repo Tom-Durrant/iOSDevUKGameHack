@@ -150,6 +150,7 @@
 		1712BA3615AF47C30009D3B1 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1712BA3515AF47C30009D3B1 /* IntroLayer.m */; };
 		1712BA3E15AF4A600009D3B1 /* WGPlayer1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1712BA3D15AF4A600009D3B1 /* WGPlayer1.m */; };
 		1712BA4115AF4A710009D3B1 /* WGPlayer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1712BA4015AF4A710009D3B1 /* WGPlayer2.m */; };
+		178601BA15AFBEE200C17E2C /* arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 178601B915AFBEE200C17E2C /* arrows.png */; };
 		17F3BCB615AF766D003C90F5 /* GameSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F3BCB515AF766D003C90F5 /* GameSessionManager.m */; };
 		2B62D01115AF9281001D7835 /* ChooseLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62D00E15AF9281001D7835 /* ChooseLevelViewController.m */; };
 		2B62D01215AF9281001D7835 /* WGConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62D00F15AF9281001D7835 /* WGConnectViewController.m */; };
@@ -442,6 +443,7 @@
 		1712BA3D15AF4A600009D3B1 /* WGPlayer1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGPlayer1.m; sourceTree = "<group>"; };
 		1712BA3F15AF4A710009D3B1 /* WGPlayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGPlayer2.h; sourceTree = "<group>"; };
 		1712BA4015AF4A710009D3B1 /* WGPlayer2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGPlayer2.m; sourceTree = "<group>"; };
+		178601B915AFBEE200C17E2C /* arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrows.png; sourceTree = "<group>"; };
 		17F3BCB415AF766D003C90F5 /* GameSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSessionManager.h; sourceTree = "<group>"; };
 		17F3BCB515AF766D003C90F5 /* GameSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSessionManager.m; sourceTree = "<group>"; };
 		2B62CFFC15AF8C2F001D7835 /* ChooseLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLevelViewController.h; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 		05E530AB15AF80E700CDEB7D /* Game Resources */ = {
 			isa = PBXGroup;
 			children = (
+				178601B915AFBEE200C17E2C /* arrows.png */,
 				05E530AC15AF810C00CDEB7D /* down.png */,
 				05E530AD15AF810C00CDEB7D /* dragon images.plist */,
 				05E530AE15AF810C00CDEB7D /* dragon images.png */,
@@ -1008,7 +1011,7 @@
 				05E530C115AF810C00CDEB7D /* up.png in Resources */,
 				05A4C39915AF922A0023983E /* level1.tmx in Resources */,
 				2BA7C5E915AFACBD00D5A160 /* Storyboard.storyboard in Resources */,
-				0540410815AFAD34002873D3 /* strength_bar.png in Resources */,
+				178601BA15AFBEE200C17E2C /* arrows.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
