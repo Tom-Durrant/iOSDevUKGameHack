@@ -38,7 +38,8 @@
         message = @"You're awesome.  You win.  Nice shoes.";
     } else {
     	imageName = @"game_lost.png";
-        message = @"Game Over. You still have nice hair.";
+        //message = @"Game Over. You still have nice hair.";
+        message = @"";
     }
     CGSize winSize = [[CCDirector sharedDirector]winSize];
     

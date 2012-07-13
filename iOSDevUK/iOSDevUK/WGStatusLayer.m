@@ -60,10 +60,13 @@
     // Create all the health bars
     for(NSInteger loop = 0; loop < maxHealth; loop++){
         CCSprite *bar = [CCSprite spriteWithFile:@"strength_bar.png"];
-        bar.anchorPoint = ccp(0, 0);
+        //bar.anchorPoint = ccp(0, 0);
         bar.scale = 0.3;
         bar.position = ccp((loop + 1) * bar.boundingBox.size.width, winSize.height - bar.boundingBox.size.height * 2);
         bar.color = ccc3(0, 200, 0);
+        
+        [bar runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.5 scale:0.2], [CCScaleTo actionWithDuration:0.5 scale:0.3], nil]]];
+        
         [self addChild:bar z:1 tag:100 + loop];
         
     }
