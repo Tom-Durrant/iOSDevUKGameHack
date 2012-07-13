@@ -21,7 +21,7 @@
  </layer>
  <layer name="enemies" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1sEJADAIA0AfXaD7L+sEfZSCQr2bIAjBRAAAAAAAAAAAAAAAAAAAAAAAzLW7Awzk5gAA92wo4CerOwAUOf3vlw7YBADYUgAAAAAAAAAAAAAAAAAAAHUSRu8AYg==
+   eJzt1skJACAMBEAfNmD/zYoNCB54zkC+IWQfSQgAAAAAAAAAAAAAAAAAAAAAAP9Kuwf4kJ0DALTzQwEvibsHgEXK/Y6V6u1Jv9l5MEYe57H/O8gIAAAAAAAAAAAAAAAAAABgnQwRuAC6
   </data>
  </layer>
  <objectgroup name="special" width="100" height="100">

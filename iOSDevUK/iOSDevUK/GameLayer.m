@@ -46,12 +46,16 @@
     MapContentType mapContents = [mapLayer contentsAtPlayerScreenLocation:character.position];
     //CCLOG(@"contents at (%f,%f): %d", mapLocation.x, mapLocation.y, mapContents);
     
-    CGPoint mapLocation = [mapLayer convertScreenLocationToMapLocation:character.position];
+    //CGPoint mapLocation = [mapLayer convertScreenLocationToMapLocation:character.position];
     switch (mapContents) {
         case kMapContentEnemy:
             CCLOG(@"enemy");
-            [[SimpleAudioEngine sharedEngine]playEffect:@"death.flac"];
-            [statusLayer adjustHealth:-1];
+            double currentTime = [[NSDate date] timeIntervalSince1970];
+            if(currentTime - lastDeath >= 1){
+                [[SimpleAudioEngine sharedEngine]playEffect:@"death.flac"];
+                [statusLayer adjustHealth:-1];
+                lastDeath = [[NSDate date] timeIntervalSince1970];
+            }
             break;
         case kMapContentTreasure:
             CCLOG(@"treasure");
@@ -261,6 +265,7 @@
     
     statusLayer = [WGStatusLayer setupWithData:6 maxHealth:6];
     [self addChild:statusLayer z:kGameLevelHUD tag:1024];
+    lastDeath = 0;
 
     return self;
 }

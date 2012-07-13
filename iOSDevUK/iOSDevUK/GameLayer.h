@@ -38,6 +38,8 @@ typedef enum {
     ccTime lastUpdate;
     
     BOOL gameOver;
+    
+    double lastDeath;
 }
 
 @property (readonly) CCSprite *dragon;
