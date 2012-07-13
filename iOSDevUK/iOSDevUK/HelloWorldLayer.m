@@ -16,6 +16,7 @@
 #import "WGPlayer1.h"
 #import "WGPlayer2.h"
 #import "GameSessionManager.h"
+#import ""
 
 #define STEP 1.0f
 #define SENSETIVITY 2.0f
@@ -23,6 +24,11 @@
 #define MOVEMENT_SPEED 2.0f
 
 #pragma mark - HelloWorldLayer
+
+struct dragonStatus {
+CGPoint location, deltas;
+CGFloat angle;
+};
 
 @interface HelloWorldLayer ()
 -(void)gotDataNotification:(NSNotification *)note;
@@ -255,8 +261,23 @@ CGFloat angles[3][3] = {
     if(_mode != kModeBoth) { [self sendFloat: delta]; }
 }
 
+- (void)sendDragonStatus
+{
+    struct dragonStatus status;
+    status.location = 
+    status.deltas = CGPointMake([WGPlayer1 shared].deltaX, [WGPlayer2 shared].deltaY);
+    status.angle = _CurrentAngle;
+    
+    int type = kServerDragonUpdate;
+    NSMutableData *data = [NSMutableData dataWithBytes:&type length:sizeof(int)];
+    [data appendBytes:&status length:sizeof(status)];
+    
+    [[GameSessionManager sharedManager] sendData: data];
+}
+
 -(void)sendFloat:(CGFloat)f {
-    NSMutableData *data = [NSMutableData data];
+    int type = kClientDragonUpdate;
+    NSMutableData *data = [NSMutableData dataWithBytes:&type length:sizeof(int)];
     [data appendBytes: &f length: sizeof(CGFloat)];
     [[GameSessionManager sharedManager] sendData: data];
 }
@@ -264,19 +285,37 @@ CGFloat angles[3][3] = {
 -(void)gotDataNotification:(NSNotification *)note {
     if(_mode == kModeBoth) { return; } // shouldn't ever happen
     NSData *data = (NSData *)[note object];
-    CGFloat f;
-    [data getBytes: &f length: sizeof(CGFloat)];
-    switch(_mode) {
-        case kModePlayer1:
-            [[WGPlayer2 shared] setDeltaY: f];
-            break;
-            
-        case kModePlayer2:
-            [[WGPlayer1 shared] setDeltaX: f];
-            break;
-            
-        default: break;
+    
+    int type;
+    [data getBytes:&type length:sizeof(int)];
+    
+    if (type == kClientDragonUpdate) {
+        CGFloat f;
+        [data getBytes: &f range:NSMakeRange(sizeof(int), sizeof(float))];
+        [[WGPlayer2 shared] setDeltaY:f];
+    } else if (type == kServerDragonUpdate) {
+        struct dragonStatus status;
+        [data getBytes: &status range:NSMakeRange(sizeof(int), sizeof(status))];
+//        [GameLayer 
+        [[WGPlayer1 shared] setDeltaX:status.deltas.x];
+        [[WGPlayer2 shared] setDeltaY:status.deltas.y];
+        _CurrentAngle = status.angle;
+        
     }
+    
+//    CGFloat f;
+//    [data getBytes: &f length: sizeof(CGFloat)];
+//    switch(_mode) {
+//        case kModePlayer1:
+//            [[WGPlayer2 shared] setDeltaY: f];
+//            break;
+//            
+//        case kModePlayer2:
+//            [[WGPlayer1 shared] setDeltaX: f];
+//            break;
+//            
+//        default: break;
+//    }
 }
 
 #pragma mark GameKit delegate

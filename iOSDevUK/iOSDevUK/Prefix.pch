@@ -25,5 +25,6 @@ typedef enum {
 typedef enum {
     kChosePlayerMode,
     kChoseLevel,
-    kDragonUpdate
+    kClientDragonUpdate,
+    kServerDragonUpdate
 } WGDataType;
