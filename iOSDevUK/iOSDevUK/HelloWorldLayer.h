@@ -15,12 +15,6 @@
 
 @class GameLayer;
 
-typedef enum {
-    kModeBoth,
-    kModePlayer1,
-    kModePlayer2,
-} WGMode;
-
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate> {
     //CCLabelTTF *_label;

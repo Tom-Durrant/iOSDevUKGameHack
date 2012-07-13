@@ -22,4 +22,6 @@
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
 
+- (void)beginGameWithPlayerType:(int)playerType andLevelNumber:(int)levelNumber;
+
 @end

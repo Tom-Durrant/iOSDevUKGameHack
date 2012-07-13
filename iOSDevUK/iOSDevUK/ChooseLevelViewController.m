@@ -1,27 +1,25 @@
 //
-//  WGSelectPlayerModeViewController.m
+//  ChooseLevelViewController.m
 //  iOSDevUK
 //
 //  Created by Tom Durrant on 12/07/2012.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "WGSelectPlayerModeViewController.h"
-#import "GameSessionManager.h"
 #import "ChooseLevelViewController.h"
+#import "GameSessionManager.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
 
-@interface WGSelectPlayerModeViewController () {
+@interface ChooseLevelViewController () {
     bool observingReceivedDataNotification;
-    int playerType;
 }
 
 @end
 
-@implementation WGSelectPlayerModeViewController
+@implementation ChooseLevelViewController
 
-@synthesize upDownButton, leftRightButton;
-@synthesize buttonClickDate;
+@synthesize playerMode, chosenLevel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,14 +35,15 @@
     NSData *data = notification.object;
     if ([data isKindOfClass:[NSData class]]) {
         int type = ((int *)[data bytes])[0];
-        if (type == kChosePlayerMode) {
+        if (type == kChoseLevel) {
             int number = ((int *)[data bytes])[1];
             
-            if (number == kModePlayer1) {
-                playerType = kModePlayer2;
-            } else playerType = kModePlayer1;
+            self.chosenLevel = number;
             
-            [self performSegueWithIdentifier:@"ShowLevelChooserSegue" sender:self];
+            if (observingReceivedDataNotification) {
+                [[NSNotificationCenter defaultCenter] removeObserver:self];
+            }
+            observingReceivedDataNotification = NO;
             
             UIView *otherPlayerChoseModeView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 480, 320)] autorelease];
             UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -53,9 +52,7 @@
             UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(50, 50, 380, 220)] autorelease];
             label.textAlignment = UITextAlignmentCenter;
             label.numberOfLines = 0;
-            NSString *string1 = number == kModePlayer1 ? @"'Left and Right'" : @"'Up and Down'";
-            NSString *string2 = playerType == kModePlayer1 ? @"'Left and Right'" : @"'Up and Down'";
-            label.text = [NSString stringWithFormat:@"Your friend chose %@, so you're now %@", string1, string2];
+            label.text = [NSString stringWithFormat:@"Your friend chose level %i", number];
             [otherPlayerChoseModeView addSubview:label];
             
             otherPlayerChoseModeView.layer.cornerRadius = 10;
@@ -87,16 +84,13 @@
                     otherPlayerChoseModeView.alpha = 0;
                 } completion:^(BOOL finished) {
                     [otherPlayerChoseModeView removeFromSuperview];
+                    [((AppController *)[UIApplication sharedApplication].delegate) beginGameWithPlayerType:playerMode andLevelNumber:chosenLevel];
                 }];
             });
+            
+            
+            //begin game.
         }
-    }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"ShowLevelChooserSegue"]) {
-        ((ChooseLevelViewController *)segue.destinationViewController).playerMode = playerType;
     }
 }
 
@@ -104,24 +98,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedData:) name:@"didReceiveData" object:nil];
     observingReceivedDataNotification = YES;
-    
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    if (observingReceivedDataNotification) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-    }
-    observingReceivedDataNotification = NO;
-    
-    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidUnload
@@ -135,30 +114,17 @@
 	return YES;
 }
 
-- (void)upDownButtonPressed:(id)sender
+- (void)levelButtonPressed:(UIButton *)sender
 {
-    int type = kChosePlayerMode;
+    int type = kChoseLevel;
     NSMutableData *data = [NSMutableData dataWithBytes:&type length:sizeof(int)];
-    int number = kModePlayer2;
+    int number = sender.tag;
     [data appendBytes:&number length:sizeof(int)];
     [[GameSessionManager sharedManager] sendData:data];
     
-    playerType = number;
+    chosenLevel = number;
     
-    [self performSegueWithIdentifier:@"ShowLevelChooserSegue" sender:self];
-}
-
-- (void)leftRightButtonPressed:(id)sender
-{
-    int type = kChosePlayerMode;
-    NSMutableData *data = [NSMutableData dataWithBytes:&type length:sizeof(int)];
-    int number = kModePlayer1;
-    [data appendBytes:&number length:sizeof(int)];
-    [[GameSessionManager sharedManager] sendData:data];
-    
-    playerType = number;
-    
-    [self performSegueWithIdentifier:@"ShowLevelChooserSegue" sender:self];
+    [((AppController *)[UIApplication sharedApplication].delegate) beginGameWithPlayerType:playerMode andLevelNumber:chosenLevel];
 }
 
 @end

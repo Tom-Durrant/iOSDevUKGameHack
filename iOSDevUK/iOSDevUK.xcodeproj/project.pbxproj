@@ -150,6 +150,10 @@
 		1712BA3E15AF4A600009D3B1 /* WGPlayer1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1712BA3D15AF4A600009D3B1 /* WGPlayer1.m */; };
 		1712BA4115AF4A710009D3B1 /* WGPlayer2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1712BA4015AF4A710009D3B1 /* WGPlayer2.m */; };
 		17F3BCB615AF766D003C90F5 /* GameSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F3BCB515AF766D003C90F5 /* GameSessionManager.m */; };
+		2B62D00615AF8C36001D7835 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B62D00515AF8C36001D7835 /* Storyboard.storyboard */; };
+		2B62D01115AF9281001D7835 /* ChooseLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62D00E15AF9281001D7835 /* ChooseLevelViewController.m */; };
+		2B62D01215AF9281001D7835 /* WGConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62D00F15AF9281001D7835 /* WGConnectViewController.m */; };
+		2B62D01315AF9281001D7835 /* WGSelectPlayerModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62D01015AF9281001D7835 /* WGSelectPlayerModeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -437,6 +441,13 @@
 		1712BA4015AF4A710009D3B1 /* WGPlayer2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGPlayer2.m; sourceTree = "<group>"; };
 		17F3BCB415AF766D003C90F5 /* GameSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSessionManager.h; sourceTree = "<group>"; };
 		17F3BCB515AF766D003C90F5 /* GameSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSessionManager.m; sourceTree = "<group>"; };
+		2B62CFFC15AF8C2F001D7835 /* ChooseLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLevelViewController.h; sourceTree = "<group>"; };
+		2B62D00015AF8C2F001D7835 /* WGSelectPlayerModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGSelectPlayerModeViewController.h; sourceTree = "<group>"; };
+		2B62D00515AF8C36001D7835 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		2B62D00B15AF923C001D7835 /* WGConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGConnectViewController.h; sourceTree = "<group>"; };
+		2B62D00E15AF9281001D7835 /* ChooseLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLevelViewController.m; sourceTree = "<group>"; };
+		2B62D00F15AF9281001D7835 /* WGConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGConnectViewController.m; sourceTree = "<group>"; };
+		2B62D01015AF9281001D7835 /* WGSelectPlayerModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGSelectPlayerModeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +541,7 @@
 				1712BA4015AF4A710009D3B1 /* WGPlayer2.m */,
 				17F3BCB415AF766D003C90F5 /* GameSessionManager.h */,
 				17F3BCB515AF766D003C90F5 /* GameSessionManager.m */,
+				2B62CFFA15AF8C1A001D7835 /* PreGameSetupViewControllers */,
 				1712B8B715AF47C10009D3B1 /* Resources */,
 				1712B8D115AF47C10009D3B1 /* libs */,
 				1712BA2A15AF47C30009D3B1 /* Supporting Files */,
@@ -901,6 +913,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2B62CFFA15AF8C1A001D7835 /* PreGameSetupViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B62D00515AF8C36001D7835 /* Storyboard.storyboard */,
+				2B62D00B15AF923C001D7835 /* WGConnectViewController.h */,
+				2B62D00F15AF9281001D7835 /* WGConnectViewController.m */,
+				2B62D00015AF8C2F001D7835 /* WGSelectPlayerModeViewController.h */,
+				2B62D01015AF9281001D7835 /* WGSelectPlayerModeViewController.m */,
+				2B62CFFC15AF8C2F001D7835 /* ChooseLevelViewController.h */,
+				2B62D00E15AF9281001D7835 /* ChooseLevelViewController.m */,
+			);
+			name = PreGameSetupViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1095,6 +1121,9 @@
 				17F3BCB615AF766D003C90F5 /* GameSessionManager.m in Sources */,
 				05E530A815AF80E100CDEB7D /* GameLayer.m in Sources */,
 				05E530A915AF80E100CDEB7D /* MapLayer.m in Sources */,
+				2B62D01115AF9281001D7835 /* ChooseLevelViewController.m in Sources */,
+				2B62D01215AF9281001D7835 /* WGConnectViewController.m in Sources */,
+				2B62D01315AF9281001D7835 /* WGSelectPlayerModeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1116,7 +1145,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1135,7 +1164,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1151,6 +1180,7 @@
 				GCC_PREFIX_HEADER = iOSDevUK/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"iOSDevUK/libs/kazmath/include\"";
 				INFOPLIST_FILE = iOSDevUK/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1169,6 +1199,7 @@
 				GCC_PREFIX_HEADER = iOSDevUK/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"iOSDevUK/libs/kazmath/include\"";
 				INFOPLIST_FILE = iOSDevUK/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",

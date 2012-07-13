@@ -80,10 +80,12 @@
         UIView *glView = [[CCDirector sharedDirector] openGLView];
         UIView *view;
         UIPanGestureRecognizer *pgr;
+        CGRect frame;
         
         // horizontal movement
         if(_mode != kModePlayer2) {
-            view = [[UIView alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 512.0f, 768.0f)];
+            frame = (_mode == kModeBoth) ? CGRectMake(0.0f, 0.0f, 512.0f, 768.0f) : CGRectMake(0.0f, 0.0f, 1024.0f, 768.0f);
+            view = [[UIView alloc] initWithFrame: frame];
             [view setBackgroundColor: [UIColor colorWithRed: 1.0f green: 0.0f blue: 0.0f alpha: 0.1f]];
             [glView addSubview: view]; [view release];
             pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panX:)];
@@ -92,7 +94,8 @@
     
         // vertical movement
         if(_mode != kModePlayer1) {
-            view = [[UIView alloc] initWithFrame: CGRectMake(512.0f, 0.0f, 512.0f, 768.0f)];
+            frame = (_mode == kModeBoth) ? CGRectMake(512.0f, 0.0f, 512.0f, 768.0f) : CGRectMake(0.0f, 0.0f, 1024.0f, 768.0f);
+            view = [[UIView alloc] initWithFrame: frame];
             [view setBackgroundColor: [UIColor colorWithRed: 0.0f green: 1.0f blue: 0.0f alpha: 0.1f]];
             [glView addSubview: view]; [view release];
             pgr = [[UIPanGestureRecognizer alloc] initWithTarget: self action: @selector(panY:)];
@@ -139,20 +142,22 @@ CGFloat angles[3][3] = {
 };
 
 -(void)update:(ccTime)delta {
-/*    CGPoint pos = _label.position;
-    CGFloat f;
-    if(0.0f != (f = [[WGPlayer1 shared] deltaX])) {
-        _vx = f;
+
+    CGFloat dx, dy;
+    if(0.0f != (dx = [[WGPlayer1 shared] deltaX])) {
+        _vx = dx;
     }
-    if(0.0f != (f = [[WGPlayer2 shared] deltaY])) {
-        _vy = f;
+    if(0.0f != (dy = [[WGPlayer2 shared] deltaY])) {
+        _vy = dy;
     }
-    pos.x += _vx;
-    pos.y += _vy;
-    _label.position = pos;*/
+    [_gameLayer moveCharacter: CGPointMake(_vx, _vy)];
     
-    
-    
+    int x = (dx < 0.0f) ? 0 : ((dx > 0.0f) ? 2 : 1);
+    int y = (dy < 0.0f) ? 0 : ((dy > 0.0f) ? 2 : 1);
+    CGFloat angle = angles[x][y] - 90.0f;
+    [[_gameLayer dragon] setRotation: angle];
+
+/*
     CGPoint pos = CGPointZero; // because _label.position;
     CGFloat dx = [[WGPlayer1 shared] deltaX];
     CGFloat dy = [[WGPlayer2 shared] deltaY];
@@ -163,18 +168,6 @@ CGFloat angles[3][3] = {
 
     if(!isnan(angle)) {
         CGFloat change = 0.0f;
-        
-        //CGFloat normalisedCurrentAngle = _CurrentAngle;
-        //CGFloat normalisedGoToAngle = angle;
-    
-        /*
-    if (normalisedGoToAngle > 180)
-        normalisedGoToAngle -= 360;
-    if (normalisedCurrentAngle > 180)
-        normalisedCurrentAngle -= 360;
-    
-    CGFloat difference = normalisedGoToAngle - normalisedCurrentAngle;
-        */
         
         CGFloat difference = angle - _CurrentAngle;
         if(difference < -180.0f) { difference += 360.0f; }
@@ -217,12 +210,8 @@ CGFloat angles[3][3] = {
     pos.y = -sinf(CC_DEGREES_TO_RADIANS( _CurrentAngle)) * MOVEMENT_SPEED;
     
     [_gameLayer moveCharacter: pos];
-    
-    //[_label setRotation:_CurrentAngle];
     [[_gameLayer dragon] setRotation: _CurrentAngle + 90.0f];
-    
-    //_label.position = pos;
-
+*/
 }
 
 
