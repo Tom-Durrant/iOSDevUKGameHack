@@ -16,7 +16,6 @@
 #import "WGPlayer1.h"
 #import "WGPlayer2.h"
 #import "GameSessionManager.h"
-#import ""
 
 #define STEP 1.0f
 #define SENSETIVITY 2.0f
@@ -238,7 +237,7 @@ CGFloat angles[3][3] = {
             break;
     }
     [[WGPlayer1 shared] setDeltaX: delta];
-    if(_mode != kModeBoth) { [self sendFloat: delta]; }
+    if(_mode != kModeBoth) { [self sendDragonStatus]; }
 }
 
 -(void)panY:(UIGestureRecognizer *)gr {
@@ -264,7 +263,7 @@ CGFloat angles[3][3] = {
 - (void)sendDragonStatus
 {
     struct dragonStatus status;
-    status.location = 
+    status.location = _gameLayer.dragon.position;
     status.deltas = CGPointMake([WGPlayer1 shared].deltaX, [WGPlayer2 shared].deltaY);
     status.angle = _CurrentAngle;
     
@@ -293,13 +292,15 @@ CGFloat angles[3][3] = {
         CGFloat f;
         [data getBytes: &f range:NSMakeRange(sizeof(int), sizeof(float))];
         [[WGPlayer2 shared] setDeltaY:f];
+        CCLOG(@"got float");
     } else if (type == kServerDragonUpdate) {
         struct dragonStatus status;
         [data getBytes: &status range:NSMakeRange(sizeof(int), sizeof(status))];
-//        [GameLayer 
+        [_gameLayer moveCharacterToPosition:status.location];  
         [[WGPlayer1 shared] setDeltaX:status.deltas.x];
         [[WGPlayer2 shared] setDeltaY:status.deltas.y];
         _CurrentAngle = status.angle;
+        CCLOG(@"Loc: (%1.2f, %1.2f), Del: (%1.2f, %1.2f) Ang: %1.2f", status.location.x, status.location.y, status.deltas.x, status.deltas.y, status.angle);
         
     }
     
