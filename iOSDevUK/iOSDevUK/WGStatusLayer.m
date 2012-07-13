@@ -44,7 +44,7 @@
 
 - (void)setHealth:(NSInteger)newHealth
 {
-    int difference = health - newHealth;
+    int difference = newHealth - health;
     
     [self adjustHealth:difference];
 }
