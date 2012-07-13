@@ -203,6 +203,9 @@
     tagMap = [self nextTag];
     [self addChild:mapLayer z:kGameLevelMap tag:tagMap];
     
+    statusLayer = [WGStatusLayer setupWithData:10 maxHealth:10];
+    [self addChild:statusLayer z:kGameLevelHUD tag:1024];
+    
     [self setupGraphics];
     
     return self;

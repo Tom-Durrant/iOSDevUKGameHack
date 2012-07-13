@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0540410215AFAAD5002873D3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B62D00515AF8C36001D7835 /* Storyboard.storyboard */; };
+		0540410615AFABF0002873D3 /* WGStatusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0540410515AFABF0002873D3 /* WGStatusLayer.m */; };
+		0540410815AFAD34002873D3 /* strength_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0540410715AFAD34002873D3 /* strength_bar.png */; };
 		05A4C39915AF922A0023983E /* level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 05A4C39815AF922A0023983E /* level1.tmx */; };
 		05E530A815AF80E100CDEB7D /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E530A515AF80E100CDEB7D /* GameLayer.m */; };
 		05E530A915AF80E100CDEB7D /* MapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E530A715AF80E100CDEB7D /* MapLayer.m */; };
@@ -157,6 +160,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0540410415AFABF0002873D3 /* WGStatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGStatusLayer.h; sourceTree = "<group>"; };
+		0540410515AFABF0002873D3 /* WGStatusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGStatusLayer.m; sourceTree = "<group>"; };
+		0540410715AFAD34002873D3 /* strength_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = strength_bar.png; path = Resources/strength_bar.png; sourceTree = "<group>"; };
 		05A4C39815AF922A0023983E /* level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level1.tmx; path = Resources/level1.tmx; sourceTree = "<group>"; };
 		05E530A415AF80E100CDEB7D /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		05E530A515AF80E100CDEB7D /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
@@ -473,6 +479,7 @@
 		05E530AB15AF80E700CDEB7D /* Game Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0540410715AFAD34002873D3 /* strength_bar.png */,
 				05E530AC15AF810C00CDEB7D /* down.png */,
 				05E530AD15AF810C00CDEB7D /* dragon images.plist */,
 				05E530AE15AF810C00CDEB7D /* dragon images.png */,
@@ -545,6 +552,8 @@
 				1712B8B715AF47C10009D3B1 /* Resources */,
 				1712B8D115AF47C10009D3B1 /* libs */,
 				1712BA2A15AF47C30009D3B1 /* Supporting Files */,
+				0540410415AFABF0002873D3 /* WGStatusLayer.h */,
+				0540410515AFABF0002873D3 /* WGStatusLayer.m */,
 			);
 			path = iOSDevUK;
 			sourceTree = "<group>";
@@ -1002,7 +1011,12 @@
 				05E530C015AF810C00CDEB7D /* right.png in Resources */,
 				05E530C115AF810C00CDEB7D /* up.png in Resources */,
 				05A4C39915AF922A0023983E /* level1.tmx in Resources */,
+<<<<<<< HEAD
 				2BA7C5E915AFACBD00D5A160 /* Storyboard.storyboard in Resources */,
+=======
+				0540410215AFAAD5002873D3 /* Storyboard.storyboard in Resources */,
+				0540410815AFAD34002873D3 /* strength_bar.png in Resources */,
+>>>>>>> added hud
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1125,6 +1139,7 @@
 				2B62D01115AF9281001D7835 /* ChooseLevelViewController.m in Sources */,
 				2B62D01215AF9281001D7835 /* WGConnectViewController.m in Sources */,
 				2B62D01315AF9281001D7835 /* WGSelectPlayerModeViewController.m in Sources */,
+				0540410615AFABF0002873D3 /* WGStatusLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
