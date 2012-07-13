@@ -24,13 +24,13 @@
    eJztzkENADAIBDAsbPj3Og9kyfFoFbQKAAAAAAAAAAAAAACY6nQAAAAAAAAAAACIuOkAAAAAwAcnHQAAAAAAAAAAAAAAAACAxR51VwA3
   </data>
  </layer>
- <objectgroup name="special" width="100" height="100">
-  <object name="start" x="2149" y="797" width="32" height="32"/>
-  <object name="goal" x="1091" y="2393" width="32" height="32"/>
- </objectgroup>
  <layer name="hazard" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt2kEKgzAQBVD33XTj/a9auiqEqNiMcRLfA1F3YX4mRnFZAAAAAAAAAABgHuvdA4CB6JfrlTU+W/MeGZkHzMi8vp8MzlEviPW+ewATsC6NQU4A9PIqDtq0PsNb8pBjrNbeeHJvRe9ly1rK4z/rxnXtfk9ELeURJ6qOsgBq9p4dWWQdFzA/e6c87GXz8K6XS8T3FOLI4XreDfLokYV/h47piRzkAAAAjGotzvxE1sQ3jjHoAzhW6xO9U6cufJkHQG9b6471CBiF9Qr0AQAAAAAAAABATx9IiAV4
   </data>
  </layer>
+ <objectgroup name="special" width="100" height="100">
+  <object name="start" x="2149" y="797" width="32" height="32"/>
+  <object name="goal" x="1091" y="2393" width="32" height="32"/>
+ </objectgroup>
 </map>

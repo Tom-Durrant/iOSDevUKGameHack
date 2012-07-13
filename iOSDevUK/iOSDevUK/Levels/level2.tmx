@@ -24,7 +24,7 @@
    eJztzkENADAIBDAssPn3Og0kS+5Bq6BVAAAAAAAAAAAAAAD/nHQAAAAAAABY4aYDAAAAAADASKcDAAAAAAAAAAAAAAAAAAAAMPQAHdkANw==
   </data>
  </layer>
- <objectgroup name="special" width="100" height="100" visible="0">
+ <objectgroup name="special" width="100" height="100">
   <object name="start" x="629" y="914" width="32" height="32"/>
   <object name="goal" x="784" y="1937" width="32" height="32"/>
  </objectgroup>
