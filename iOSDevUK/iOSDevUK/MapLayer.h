@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "WGGameOverLayer.h"
 
 #define MIN_MAP_NUMBER	0
 #define MAX_MAP_NUMBER	1
@@ -29,6 +30,7 @@ typedef enum{
     CGSize mapSize;
     CCLabelTTF *hitDisplay;
     CGRect startLocation, endLocation;
+    BOOL gameOver;
 }
 @property(nonatomic, readonly) CGRect startLocation, endLocation;
 

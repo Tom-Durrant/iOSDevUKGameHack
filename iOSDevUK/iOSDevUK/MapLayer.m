@@ -101,13 +101,23 @@
  *-----------------------------------------------------------------------------------------------*/ 
 -(MapContentType)contentAtLocation:(CGPoint)mapLocation{
     
+    if(gameOver)
+        return kMapContentBlank;
+    
     unsigned int graphicId;
     MapContentType contents = kMapContentBlank;
     
     // See if we've reached the goal
     if(abs(endLocation.origin.x - mapLocation.x) <= 1 && abs(tiledMap.mapSize.height - endLocation.origin.y - mapLocation.y) <= 1){
-        CCLOG(@"*******************");
+        //CCLOG(@"*******************");
         contents = kMapContentGoal;
+        gameOver = YES;
+        
+        WGGameOverLayer *gameOverLayer = [WGGameOverLayer setupWithData:YES];
+        [self addChild:gameOverLayer z:9999];
+        return kMapContentBlank;
+                                          
+        
     } else {
         
         // Go through all the layers - start with the top
@@ -322,6 +332,7 @@
     }
     
     mapNumber = levelNumer;
+    gameOver = NO;
     startLocation = CGRectZero;
     endLocation = CGRectZero;
     CGSize winSize = [[CCDirector sharedDirector]winSize];
