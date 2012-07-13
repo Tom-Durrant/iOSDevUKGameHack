@@ -31,7 +31,12 @@
     
     CGPoint adjustedOffset = ccpSub(screenLocation, tiledMap.position);
     
-    CGPoint mapLocation = CGPointMake((NSInteger)(adjustedOffset.x / tiledMap.tileSize.width) + 1, (NSInteger)(mapSize.height - adjustedOffset.y / tiledMap.tileSize.height) + 1);
+//    CGPoint mapLocation = CGPointMake((NSInteger)(adjustedOffset.x / tiledMap.tileSize.width) + 1, (NSInteger)(mapSize.height - adjustedOffset.y / tiledMap.tileSize.height) + 1);
+    CGPoint mapLocation = CGPointMake((NSInteger)(adjustedOffset.x / tiledMap.tileSize.width) + 1, (NSInteger)(adjustedOffset.y / tiledMap.tileSize.height) + 1);
+    
+    CCLOG(@"  (%f,%f)", mapLocation.x, mapLocation.y);
+    CCTMXLayer *enemyLayer = [tiledMap layerNamed:@"background"];
+	[enemyLayer removeTileAt:mapLocation];
     
     return mapLocation;
 }
@@ -97,10 +102,10 @@
     CGPoint adjustedOffset = ccpSub(screenLocation, tiledMap.position);
     
     CGFloat baseX = adjustedOffset.x / tiledMap.tileSize.width;
-    CGFloat baseY = adjustedOffset.y / tiledMap.tileSize.height;
+    CGFloat baseY = mapSize.height - adjustedOffset.y / tiledMap.tileSize.height;
     
-    CGPoint topLeft = ccp((NSInteger)baseX, (NSInteger)baseY + 1);
-    CGPoint topRight = ccp((NSInteger)baseX + 1, (NSInteger)baseY + 1);
+    CGPoint topLeft = ccp((NSInteger)baseX, (NSInteger)baseY - 1);
+    CGPoint topRight = ccp((NSInteger)baseX + 1, (NSInteger)baseY - 1);
     CGPoint bottomLeft = ccp((NSInteger)baseX, (NSInteger)baseY);
     CGPoint bottomRight = ccp((NSInteger)baseX + 1, (NSInteger)baseY);
     
@@ -119,6 +124,12 @@
     } else {
         contents = kMapContentBlank;
     }
+    
+    /*
+    CCLOG(@"  (%f,%f)", topLeft.x, topLeft.y);
+    CCTMXLayer *enemyLayer = [tiledMap layerNamed:@"background"];
+	[enemyLayer removeTileAt:topLeft];
+*/
     
     return contents;
 }
