@@ -22,7 +22,6 @@
 }
 
 
-
 /*-----------------------------------------------------------------------------------------------
  * Move the dragon
  *-----------------------------------------------------------------------------------------------*/ 
@@ -37,14 +36,19 @@
     MapContentType mapContents = [mapLayer contentsAtPlayerScreenLocation:character.position];
     //CCLOG(@"contents at (%f,%f): %d", mapLocation.x, mapLocation.y, mapContents);
     
+    CGPoint mapLocation = [mapLayer convertScreenLocationToMapLocation:character.position];
     switch (mapContents) {
         case kMapContentEnemy:
+            CCLOG(@"enemy");
             [statusLayer adjustHealth:-1];
             break;
         case kMapContentTreasure:
+            CCLOG(@"treasure");
             [statusLayer adjustHealth:+1];
+            [mapLayer removeTile:mapLocation tileType:mapContents];
             break;
         case kMapContentWall:
+            CCLOG(@"wall");
             [mapLayer scrollMapInGivenDirection: ccp(-direction.x, -direction.y)];
             break;
         default:
@@ -55,6 +59,15 @@
     if(statusLayer.health <= 0)
         CCLOG(@"Game Over");
     
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+ * Move the dragon to the given position - allows for updates after network drops
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)moveCharacterToPosition:(CGPoint)position{
+    CGPoint difference = ccpSub(position, _dragon.position);
+    [self moveCharacter:difference];
 }
 
 

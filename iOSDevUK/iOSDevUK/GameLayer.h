@@ -43,5 +43,6 @@ typedef enum {
 +(id)setupWithData;
 
 -(void)moveCharacter:(CGPoint)direction;
+-(void)moveCharacterToPosition:(CGPoint)position;
 
 @end

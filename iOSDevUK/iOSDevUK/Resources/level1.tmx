@@ -16,7 +16,7 @@
  </layer>
  <layer name="treasure" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJzt2EENADAIA0AU4F/uTAAj4U5BQ9oPEQAAAAAAAAAAAAAAAAAAAABAtfwdAAAAAGCQXwjsZqM93JVrdB4AAAAAAAAAAAAAAAAAAIBrHidcAEc=
   </data>
  </layer>
  <layer name="enemies" width="100" height="100">

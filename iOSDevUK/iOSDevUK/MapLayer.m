@@ -14,6 +14,33 @@
 
 
 /*-----------------------------------------------------------------------------------------------
+ * Remove the tile at the given location
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)removeTile:(CGPoint)mapLocation tileType:(MapContentType)contentType{
+    
+    // Work out what layer we want
+    CCTMXLayer *layer;
+    switch (contentType) {
+        case kMapContentEnemy:
+            layer = [tiledMap layerNamed:@"enemies"];
+            break;
+        case kMapContentTreasure:
+            layer = [tiledMap layerNamed:@"treasure"];
+            break;
+        case kMapContentWall:
+            layer = [tiledMap layerNamed:@"walls"];
+            break;
+        default:
+            // Abort
+            return;
+    }
+    
+    [layer removeTileAt:mapLocation];
+    
+}
+
+
+/*-----------------------------------------------------------------------------------------------
  * Scroll the map the number of pixels in the given delta direction
  *-----------------------------------------------------------------------------------------------*/ 
 -(void)scrollMapInGivenDirection:(CGPoint)offset{
@@ -31,12 +58,13 @@
     
     CGPoint adjustedOffset = ccpSub(screenLocation, tiledMap.position);
     
-//    CGPoint mapLocation = CGPointMake((NSInteger)(adjustedOffset.x / tiledMap.tileSize.width) + 1, (NSInteger)(mapSize.height - adjustedOffset.y / tiledMap.tileSize.height) + 1);
-    CGPoint mapLocation = CGPointMake((NSInteger)(adjustedOffset.x / tiledMap.tileSize.width) + 1, (NSInteger)(adjustedOffset.y / tiledMap.tileSize.height) + 1);
+    CGPoint mapLocation = CGPointMake((NSInteger)(adjustedOffset.x / tiledMap.tileSize.width) + 1, (NSInteger)(mapSize.height - adjustedOffset.y / tiledMap.tileSize.height) + 1);
     
+    /*
     CCLOG(@"  (%f,%f)", mapLocation.x, mapLocation.y);
     CCTMXLayer *enemyLayer = [tiledMap layerNamed:@"background"];
 	[enemyLayer removeTileAt:mapLocation];
+    */
     
     return mapLocation;
 }
