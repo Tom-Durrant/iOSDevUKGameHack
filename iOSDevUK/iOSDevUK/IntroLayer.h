@@ -12,11 +12,14 @@
 #import "GameLayer.h"
 
 // HelloWorldLayer
-@interface IntroLayer : CCLayer
-{
+@interface IntroLayer : CCLayer {
+    WGMode _mode;
 }
+
+@property WGMode mode;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
++(CCScene *)sceneWithMode:(WGMode)mode;
 
 @end
