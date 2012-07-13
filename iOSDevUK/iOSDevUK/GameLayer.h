@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "MapLayer.h"
-#import "WGStatusLayer.h"
 
 typedef enum {
     kGameLevelError = 0,
@@ -24,7 +23,6 @@ typedef enum {
 @interface GameLayer : CCLayer {
     MapLayer *mapLayer;
     CCSpriteBatchNode *batchNode;
-    WGStatusLayer *statusLayer;
     
     CGSize winSize;
     NSInteger nextTag;
