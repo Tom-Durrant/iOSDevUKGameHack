@@ -216,6 +216,8 @@ CGFloat angles[3][3] = {
     
     [_gameLayer moveCharacter: pos];
     [[_gameLayer dragon] setRotation: _CurrentAngle + 90.0f];
+    
+    if(_mode == kModeServer) [self sendDragonStatus];
 //*/
 }
 
@@ -237,7 +239,7 @@ CGFloat angles[3][3] = {
             break;
     }
     [[WGPlayer1 shared] setDeltaX: delta];
-    if(_mode != kModeBoth) { [self sendDragonStatus]; }
+//    if(_mode != kModeBoth) { [self sendDragonStatus]; }
 }
 
 -(void)panY:(UIGestureRecognizer *)gr {
@@ -263,7 +265,7 @@ CGFloat angles[3][3] = {
 - (void)sendDragonStatus
 {
     struct dragonStatus status;
-    status.location = _gameLayer.dragon.position;
+    status.location = [_gameLayer getCurrentMapPosition];
     status.deltas = CGPointMake([WGPlayer1 shared].deltaX, [WGPlayer2 shared].deltaY);
     status.angle = _CurrentAngle;
     
@@ -300,7 +302,7 @@ CGFloat angles[3][3] = {
         [[WGPlayer1 shared] setDeltaX:status.deltas.x];
         [[WGPlayer2 shared] setDeltaY:status.deltas.y];
         _CurrentAngle = status.angle;
-        CCLOG(@"Loc: (%1.2f, %1.2f), Del: (%1.2f, %1.2f) Ang: %1.2f", status.location.x, status.location.y, status.deltas.x, status.deltas.y, status.angle);
+//        CCLOG(@"Loc: (%1.2f, %1.2f), Del: (%1.2f, %1.2f) Ang: %1.2f", status.location.x, status.location.y, status.deltas.x, status.deltas.y, status.angle);
         
     }
     

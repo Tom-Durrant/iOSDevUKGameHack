@@ -26,7 +26,7 @@
  * Get the current map position
  *-----------------------------------------------------------------------------------------------*/ 
 -(CGPoint)getCurrentMapPosition{
-    return mapLayer.position;
+    return [mapLayer tiledMapPosition];
 }
 
 
@@ -56,8 +56,8 @@
             //[mapLayer removeTile:mapLocation tileType:mapContents];
             break;
         case kMapContentWall:
-            CCLOG(@"wall");
-            [mapLayer scrollMapInGivenDirection: ccp(-direction.x, -direction.y)];
+//            CCLOG(@"wall");
+//            [mapLayer scrollMapInGivenDirection: ccp(-direction.x, -direction.y)];
             break;
         default:
             break;
@@ -74,7 +74,8 @@
  * Move the dragon to the given position - allows for updates after network drops
  *-----------------------------------------------------------------------------------------------*/ 
 -(void)moveCharacterToPosition:(CGPoint)position{
-    CGPoint difference = ccpSub(position, _dragon.position);
+    
+    CGPoint difference = ccpSub([mapLayer tiledMapPosition], position);
     [self moveCharacter:difference];
 }
 

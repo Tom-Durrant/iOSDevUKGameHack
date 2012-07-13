@@ -50,6 +50,11 @@
     
 }
 
+- (CGPoint)tiledMapPosition
+{
+    return tiledMap.position;
+}
+
 
 /*-----------------------------------------------------------------------------------------------
  * This will look up the the current map offset, look at the location given and compute what
