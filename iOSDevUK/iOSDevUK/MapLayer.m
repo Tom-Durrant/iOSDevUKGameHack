@@ -181,6 +181,7 @@
             break;
         case kMapContentEnemy:
             hitEnemy = YES;
+            [self removeTile:topRight tileType:contentsTopRight];
             break;
         case kMapContentTreasure:
             hitTreasure = YES;
@@ -198,6 +199,7 @@
             break;
         case kMapContentEnemy:
             hitEnemy = YES;
+            [self removeTile:topLeft tileType:contentsTopLeft];
             break;
         case kMapContentTreasure:
             hitTreasure = YES;
@@ -215,6 +217,7 @@
             break;
         case kMapContentEnemy:
             hitEnemy = YES;
+            [self removeTile:bottomRight tileType:contentsBottomRight];
             break;
         case kMapContentTreasure:
             hitTreasure = YES;
@@ -232,6 +235,7 @@
             break;
         case kMapContentEnemy:
             hitEnemy = YES;
+            [self removeTile:bottomLeft tileType:contentsBottomLeft];
             break;
         case kMapContentTreasure:
             hitTreasure = YES;
