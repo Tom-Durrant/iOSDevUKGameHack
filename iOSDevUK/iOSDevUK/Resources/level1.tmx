@@ -26,6 +26,6 @@
  </layer>
  <objectgroup name="special" width="100" height="100">
   <object name="start" x="937" y="1601" width="32" height="32"/>
-  <object name="goal" x="2267" y="1765" width="32" height="32"/>
+  <object name="goal" x="997" y="1889" width="32" height="32"/>
  </objectgroup>
 </map>

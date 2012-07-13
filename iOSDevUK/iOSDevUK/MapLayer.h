@@ -18,6 +18,7 @@ typedef enum{
     kMapContentWall,
     kMapContentTreasure,
     kMapContentEnemy,
+    kMapContentGoal,
     kMapContentMaximum
 } MapContentType;
 

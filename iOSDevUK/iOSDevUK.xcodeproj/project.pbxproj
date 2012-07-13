@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05633AF115AFB17000A0E9B0 /* WGStatusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05633AF015AFB17000A0E9B0 /* WGStatusLayer.m */; };
+		059B7CCD15AFD10E00B911EE /* goal.png in Resources */ = {isa = PBXBuildFile; fileRef = 059B7CCC15AFD10E00B911EE /* goal.png */; };
 		05A4C39915AF922A0023983E /* level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 05A4C39815AF922A0023983E /* level1.tmx */; };
 		05E530A815AF80E100CDEB7D /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E530A515AF80E100CDEB7D /* GameLayer.m */; };
 		05E530A915AF80E100CDEB7D /* MapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E530A715AF80E100CDEB7D /* MapLayer.m */; };
@@ -162,6 +163,7 @@
 /* Begin PBXFileReference section */
 		05633AEF15AFB17000A0E9B0 /* WGStatusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGStatusLayer.h; sourceTree = "<group>"; };
 		05633AF015AFB17000A0E9B0 /* WGStatusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGStatusLayer.m; sourceTree = "<group>"; };
+		059B7CCC15AFD10E00B911EE /* goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = goal.png; path = Resources/goal.png; sourceTree = "<group>"; };
 		05A4C39815AF922A0023983E /* level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level1.tmx; path = Resources/level1.tmx; sourceTree = "<group>"; };
 		05E530A415AF80E100CDEB7D /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		05E530A515AF80E100CDEB7D /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 		05E530AB15AF80E700CDEB7D /* Game Resources */ = {
 			isa = PBXGroup;
 			children = (
+				059B7CCC15AFD10E00B911EE /* goal.png */,
 				178601BC15AFC7EB00C17E2C /* button.png */,
 				178601B915AFBEE200C17E2C /* arrows.png */,
 				05E530AC15AF810C00CDEB7D /* down.png */,
@@ -1016,6 +1019,7 @@
 				2BA7C5E915AFACBD00D5A160 /* Storyboard.storyboard in Resources */,
 				178601BA15AFBEE200C17E2C /* arrows.png in Resources */,
 				178601BD15AFC7EB00C17E2C /* button.png in Resources */,
+				059B7CCD15AFD10E00B911EE /* goal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

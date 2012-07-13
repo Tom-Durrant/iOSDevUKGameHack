@@ -82,6 +82,8 @@
 -(NSString *)decodeContents:(MapContentType)contents{
     
     switch (contents) {
+        case kMapContentGoal:
+            return @"Goal";
         case kMapContentWall:
             return @"Wall";
         case kMapContentEnemy:
@@ -102,23 +104,30 @@
     unsigned int graphicId;
     MapContentType contents = kMapContentBlank;
     
-    // Go through all the layers - start with the top
-    CCTMXLayer *enemyLayer = [tiledMap layerNamed:@"enemies"];
-    graphicId = [enemyLayer tileGIDAt:mapLocation];
-    if(graphicId > 0){
-        contents = kMapContentEnemy;
+    // See if we've reached the goal
+    if(abs(endLocation.origin.x - mapLocation.x) <= 1 && abs(tiledMap.mapSize.height - endLocation.origin.y - mapLocation.y) <= 1){
+        CCLOG(@"*******************");
+        contents = kMapContentGoal;
     } else {
         
-        CCTMXLayer *treasureLayer = [tiledMap layerNamed:@"treasure"];
-        graphicId = [treasureLayer tileGIDAt:mapLocation];
-        if(graphicId > 0) {
-            contents = kMapContentTreasure;
-        } else{
+        // Go through all the layers - start with the top
+        CCTMXLayer *enemyLayer = [tiledMap layerNamed:@"enemies"];
+        graphicId = [enemyLayer tileGIDAt:mapLocation];
+        if(graphicId > 0){
+            contents = kMapContentEnemy;
+        } else {
             
-            CCTMXLayer *wallLayer = [tiledMap layerNamed:@"walls"];
-            graphicId = [wallLayer tileGIDAt:mapLocation];
-            if(graphicId > 0)
-                contents = kMapContentWall;
+            CCTMXLayer *treasureLayer = [tiledMap layerNamed:@"treasure"];
+            graphicId = [treasureLayer tileGIDAt:mapLocation];
+            if(graphicId > 0) {
+                contents = kMapContentTreasure;
+            } else{
+                
+                CCTMXLayer *wallLayer = [tiledMap layerNamed:@"walls"];
+                graphicId = [wallLayer tileGIDAt:mapLocation];
+                if(graphicId > 0)
+                    contents = kMapContentWall;
+            }
         }
     }
     
@@ -151,8 +160,12 @@
     BOOL hitEnemy = NO;
     BOOL hitWall = NO;
     BOOL hitTreasure = NO;
+    BOOL hitGoal = NO;
     
     switch (contentsTopRight) {
+        case kMapContentGoal:
+            hitGoal = YES;
+            break;
         case kMapContentWall:
             hitWall = YES;
             break;
@@ -167,6 +180,9 @@
             break;
     }
     switch (contentsTopLeft) {
+        case kMapContentGoal:
+            hitGoal = YES;
+            break;
         case kMapContentWall:
             hitWall = YES;
             break;
@@ -181,6 +197,9 @@
             break;
     }
     switch (contentsBottomRight) {
+        case kMapContentGoal:
+            hitGoal = YES;
+            break;
         case kMapContentWall:
             hitWall = YES;
             break;
@@ -195,6 +214,9 @@
             break;
     }
     switch (contentsBottomLeft) {
+        case kMapContentGoal:
+            hitGoal = YES;
+            break;
         case kMapContentWall:
             hitWall = YES;
             break;
@@ -210,7 +232,9 @@
     }
     
     MapContentType contents;
-    if(hitEnemy) {
+    if(hitGoal){
+        contents = kMapContentGoal;
+    } else if(hitEnemy) {
         contents = kMapContentEnemy;
     } else if (hitWall) {
         contents = kMapContentWall;
@@ -252,9 +276,10 @@
 		NSDictionary *properties = [[mapObjects objects]objectAtIndex:loop];
 		NSString *type = [properties valueForKey:@"name"];
 		CGFloat rawX = [[properties valueForKey:@"x"]floatValue] / tiledMap.tileSize.width;
-		CGFloat rawY = tiledMap.mapSize.height - [[properties valueForKey:@"y"]floatValue] / tiledMap.tileSize.width;
-		CGFloat width = [[properties valueForKey:@"width"]floatValue];
-		CGFloat height = [[properties valueForKey:@"height"]floatValue];
+		//CGFloat rawY = tiledMap.mapSize.height - [[properties valueForKey:@"y"]floatValue] / tiledMap.tileSize.width;
+		CGFloat rawY = [[properties valueForKey:@"y"]floatValue] / tiledMap.tileSize.width;
+		CGFloat width = [[properties valueForKey:@"width"]floatValue] / tiledMap.tileSize.width;
+		CGFloat height = [[properties valueForKey:@"height"]floatValue] / tiledMap.tileSize.width;
         CCLOG(@"type:(%@) (%f,%f) (%fx%f)", type, rawX, rawY, width, height);
         if([type compare:@"start"] == NSOrderedSame){
             CCLOG(@"start");
@@ -262,6 +287,19 @@
         } else if([type compare:@"goal"] == NSOrderedSame){
             CCLOG(@"goal");
             endLocation = CGRectMake(rawX, rawY, width, height);
+            
+            CCSprite *goal = [CCSprite spriteWithFile:@"goal.png"];
+            goal.anchorPoint = ccp(0, 0);
+            goal.position = ccpMult(endLocation.origin, tiledMap.tileSize.width);
+            goal.scale = 0.5;
+            
+            [goal runAction:[CCRepeatForever actionWithAction:
+                             	[CCSequence actions:
+                                 	[CCScaleTo actionWithDuration:0.5 scale:0.1], 
+                                	[CCScaleTo actionWithDuration:0.5 scale:0.5], 
+                                 nil]]];
+            
+            [tiledMap addChild:goal z:100 tag:42];
         }
     }
 
