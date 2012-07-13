@@ -240,7 +240,9 @@
         NSLog(@"GameLayer.init failed");
         return nil;
     }
-	mapLayer = [MapLayer setupWithData:1];
+    
+    int levelNumber = [[[NSUserDefaults standardUserDefaults] valueForKey:@"levelNumber"] intValue];
+	mapLayer = [MapLayer setupWithData:levelNumber];
 
     tagMap = [self nextTag];
     [self addChild:mapLayer z:kGameLevelMap tag:tagMap];

@@ -24,6 +24,8 @@
 
 - (void)beginGameWithPlayerType:(int)playerType andLevelNumber:(int)levelNumber
 {
+    [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:levelNumber] forKey:@"levelNumber"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     // remove the current views
     for (UIView *subView in self.window.subviews) {

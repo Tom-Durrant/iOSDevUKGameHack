@@ -20,6 +20,7 @@
 @implementation ChooseLevelViewController
 
 @synthesize playerMode, chosenLevel;
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -101,12 +102,50 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedData:) name:@"didReceiveData" object:nil];
     observingReceivedDataNotification = YES;
+    
+    NSString *levelsDir = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Levels"];
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSError *error = nil;
+    NSArray *levelFiles = [fileManager contentsOfDirectoryAtPath:levelsDir error:&error];
+    if (error) NSLog(@"%@", error);
+    
+    NSMutableArray *levels = [NSMutableArray arrayWithCapacity:[levelFiles count]/2];
+    for (NSString *file in levelFiles) {
+        if ([file hasSuffix:@"tmx"]) {
+            [levels addObject:[file stringByReplacingOccurrencesOfString:@".tmx" withString:@""]];
+        }
+    }
+    [levels sortedArrayUsingSelector:@selector(compare:)];
+    
+    for (NSString *level in levels) {
+        UIView *levelView = [[[NSBundle mainBundle] loadNibNamed:@"LevelView" owner:nil options:nil] objectAtIndex:0];
+        UIImageView *imageView = (UIImageView *)[levelView viewWithTag:1];
+        UILabel *label = (UILabel *)[levelView viewWithTag:2];
+        UIButton *button = (UIButton *)[levelView viewWithTag:3];
+        
+        NSString *imagePath = [levelsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", level]];
+        NSLog(@"%@", imagePath);
+        imageView.image = [UIImage imageWithContentsOfFile:imagePath];
+        NSLog(@"%@", imageView.image);
+        label.text = level;
+        int index = [levels indexOfObject:level];
+        button.tag = index + 1;
+        [button addTarget:self action:@selector(levelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        CGRect frame = levelView.frame;
+        frame.origin.x =  index * 256;
+        levelView.frame = frame;
+        
+        [self.scrollView addSubview:levelView];
+    }
+    self.scrollView.contentSize = CGSizeMake(256 * [levels count], 100);
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    self.scrollView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

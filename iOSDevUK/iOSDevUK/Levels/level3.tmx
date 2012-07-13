@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="maptiles" tilewidth="32" tileheight="32" spacing="4">
+  <tileoffset x="2" y="2"/>
+  <image source="maptiles.png" width="128" height="256"/>
+ </tileset>
+ <layer name="background" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKH7/qUHy6Hgqqmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv8AX0MnEQ==
+  </data>
+ </layer>
+ <layer name="walls" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2kmOgzAQBdAsc/8Tt1AvMpGA7SpcgvekXkTKYP7HBndyuwEAAAAAAADAHPcvfxzrV/Y6Od5W3ubKsfbmrJN8rRnrJFdPtvrI0XuumyN5enPVx6eI+55Zrz2b5x5G9m/6GLOV+579dcQe/OrXkJHz//7j8ft77/mMq3exGF1XIvfYuqiTQaWxzFLl+HXxr0oGVcYxU4Vz0v93a2RQYQwVVMigwhiqmJ2DLl5VWKN4mJWHLtbN7INPM3IxN9bNyEUX62bloot1rhs1zF4v9PEwu4vnMcwex0zVMqg0lqNVPfaKY8o0OieOmFNX6SSih+fHWarO3WhRXYy818hnnk3L8e39/VQmfTyet+e51qwxLX1EPq/H2btYROacef5eoYtFxO8w3e/Gajn337M/ak3Xx/ZrjuziSn0sqh3v1r312VU57it38C77nFy7Bn27LvEpMh9Zx4jsgxgRWeojRtQ6o48YUV3oI8ZIju6Z4lXfu19JS6b2EPlavzskR+s5bk7k6clWF3l6r9/E61139JFj5LdYxNNHLfqoxbWjlt79OHn2fqeqBwAAAAAAAODs/gCqQAlJ
+  </data>
+ </layer>
+ <layer name="treasure" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+ <layer name="enemies" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzkENADAIBDAsbPj3Og9kyfFoFbQKAAAAAAAAAAAAAACY6nQAAAAAAAAAAACIuOkAAAAAwAcnHQAAAAAAAAAAAAAAAACAxR51VwA3
+  </data>
+ </layer>
+ <objectgroup name="special" width="100" height="100">
+  <object name="start" x="2149" y="797" width="32" height="32"/>
+  <object name="goal" x="1091" y="2393" width="32" height="32"/>
+ </objectgroup>
+ <layer name="hazard" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2kEKgzAQBVD33XTj/a9auiqEqNiMcRLfA1F3YX4mRnFZAAAAAAAAAABgHuvdA4CB6JfrlTU+W/MeGZkHzMi8vp8MzlEviPW+ewATsC6NQU4A9PIqDtq0PsNb8pBjrNbeeHJvRe9ly1rK4z/rxnXtfk9ELeURJ6qOsgBq9p4dWWQdFzA/e6c87GXz8K6XS8T3FOLI4XreDfLokYV/h47piRzkAAAAjGotzvxE1sQ3jjHoAzhW6xO9U6cufJkHQG9b6471CBiF9Qr0AQAAAAAAAABATx9IiAV4
+  </data>
+ </layer>
+</map>

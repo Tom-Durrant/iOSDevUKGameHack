@@ -6,17 +6,17 @@
  </tileset>
  <layer name="background" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwwEJAAAMBKH7/qUHy6Hgqqmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv8AX0MnEQ==
+   eJzt0bENwDAMA0F6/6XTB0hnGIx8xfUvaiVZAAAAAAAAAAAAAAAAAADwIQUN09gUgLcUNMAkKWjA/+FPUtAAu6WgAT+73W0/ve1eGwIAAPRJQQOckIKGRjt2se08fmpfOC0FDQAAAAAAAAAAAAAAALs9SzAm/w==
   </data>
  </layer>
  <layer name="walls" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2MtugzAUQEGWifL//9tNkCzLgG38aMxYmkWJitx7Wgp8tm37AAAAAAAAAAAAAAAAAAAAcOn1NXsfT/YKbNHX+szrcLR0GdujZGnSt0fp0qNuzjnXfz3GdYhnmOpy1OPsOqZHWYuzFTfRY16LcJ77TPXo16Nk5fZIXfdm/6y/4E6P1PfqMbbHPtv3dt4kdezOHp/yzH+nx94k9XnqWG2D+DwrNxnVYz9e0uJqDys2Gd0jdd2Jj5XsY7UmtT3C/yFHn+eep2YP4Tlmz7B1j9p3g1fPGiPWyj1az3BEk9V69GyiR7s2rWbVs8nqLcImrebVs8lTeoR/J3fuv3LPl7oPzrlfmD2jmV1yV84zQem7jye9Lylpcvb7a1b/gwYAAAAAAAAAAAAAAAAAwC/7A+EAlbY=
+   eJzt2MsKgzAQBVCX/v8XF6EFLRozeVgbzwEXthhxriQTpwkAAAAAAAAAAAAAAAAAAIAc8/vgd+Zpm8O8c9Bfbr3lco2SGsukn5LayiMud/6XR19H9U/9nhrn6D/ORdbl9Xl0LHmci6zL331tdDx5nCvtkc7yyJ3f2KrJY+9aedSp6ZNSmbS4z/rap+z5a/vWXnlE+71RXJVH5F4l/d4ors5jb94pnYtGzKQ0j1SflVunFnPPiHmUfhu8w15j5DxaP9sVtRotj0WvTORRr2Umvdfb0bP4aJ1Hr7o9JY9FTS2j+7i9Pvgu/cLd9NgTRNerJ30vyZHz/qrVPcgAAAAAAAAAAAAAAAAAAPhnL/T2BjE=
   </data>
  </layer>
  <layer name="treasure" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2EENADAIA0AU4F/uTAAj4U5BQ9oPEQAAAAAAAAAAAAAAAAAAAABAtfwdAAAAAGCQXwjsZqM93JVrdB4AAAAAAAAAAAAAAAAAAIBrHidcAEc=
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
   </data>
  </layer>
  <layer name="enemies" width="100" height="100">

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="maptiles" tilewidth="32" tileheight="32" spacing="4">
+  <tileoffset x="2" y="2"/>
+  <image source="maptiles.png" width="128" height="256"/>
+ </tileset>
+ <layer name="background" width="100" height="100" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKH7/qUHy6Hgqqmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv8AX0MnEQ==
+  </data>
+ </layer>
+ <layer name="walls" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2ckOwyAMRdEuI/X//7fqIlKaMhhjIDb3SN10cIGXkEBeLwAAAAAAAAAAAAAAACCmI/PCfOfYv28vcpnrOt73LFK57Cg3b1iPiSSH1Hmy0zlT62frONSy7T03omci6Z80M2l2kry0bfFMc9z31rFAHr+/WT2vR87Da9+8trvGa7+8trvG6zlSa/Ose/gRPLTxLtdmSV889HXU2m/kMXmt2/o/njLpHb/ScWs9Dtq63uYE7bxrsXacNc97yiNFuhdiUa93T1G61o/G4jgu7Wlp5yHp/Vckln3qzcRyTvVo5LVZsveubQtZ6Gq3PhuR1iUL/X9In1lJ60U0q1+1TKT3y1Fz+Jrdv9L1vZbFDjT97F2ftN5v7ZLFl2YtkHqvJxPJumIXmrW39vP798jjX2seVvXII806j/N70r0N8vjVMsbWdXfel8oZufayHOsdMmkZi5H/MaMdHoyaqzS/l+YW1cxj0moco+WhWVOTxxia6+HTxjFKHtosLPv/pPNsNe296uo2jKix2hOyOGv23jdH8JQ8SnUl+5RRrLqG52qX9utzn0ViuZ9uIfUs66h8Honlniz6SZ8hkcU8uTmCHAAAAAAAAAAAAAAAAAAAAAAAAAAgtg8LnA90
+  </data>
+ </layer>
+ <layer name="treasure" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1kEJAAAIA0BD2D+rGQRB0LsEe8hmBAAAAAAAAAAAAAAAAAAAzMntADDMTQPAffYe+EDXAQCX+G0A+nQnAAAAAAAAAAAAAAAAAAAAAPQVylkAeQ==
+  </data>
+ </layer>
+ <layer name="enemies" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzkENADAIBDAssPn3Og0kS+5Bq6BVAAAAAAAAAAAAAAD/nHQAAAAAAABY4aYDAAAAAADASKcDAAAAAAAAAAAAAAAAAAAAMPQAHdkANw==
+  </data>
+ </layer>
+ <objectgroup name="special" width="100" height="100" visible="0">
+  <object name="start" x="629" y="914" width="32" height="32"/>
+  <object name="goal" x="784" y="1937" width="32" height="32"/>
+ </objectgroup>
+ <layer name="hazard" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2TERAAAIAzEk4F8tEhg5IFHwcxsBAAAAAAAAAAAAAMBVOR0AAAAAAAC84JMAAAAAAIBdbPsAAAAAAAAAAAAAAAAAAAC9Aq8wADE=
+  </data>
+ </layer>
+</map>

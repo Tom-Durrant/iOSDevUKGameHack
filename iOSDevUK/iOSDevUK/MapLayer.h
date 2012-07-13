@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-#define MIN_MAP_NUMBER	0
-#define MAX_MAP_NUMBER	1
+#define MIN_MAP_NUMBER	1
+#define MAX_MAP_NUMBER	4
 
 typedef enum{
     kMapContentError = 0,

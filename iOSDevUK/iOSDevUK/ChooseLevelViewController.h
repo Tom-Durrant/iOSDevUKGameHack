@@ -10,6 +10,8 @@
 
 @interface ChooseLevelViewController : UIViewController
 
+@property (nonatomic, assign) IBOutlet UIScrollView *scrollView;
+
 @property int playerMode, chosenLevel;
 
 - (IBAction)levelButtonPressed:(UIButton *)sender;

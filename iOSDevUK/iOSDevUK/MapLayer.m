@@ -234,7 +234,7 @@
  * Load the current map level
  *-----------------------------------------------------------------------------------------------*/ 
 -(void)loadMap:(NSInteger)levelNumer{
-    NSString *mapName = [NSString stringWithFormat:@"level%ld.tmx", (long)levelNumer];
+    NSString *mapName = [NSString stringWithFormat:@"Levels/level%ld.tmx", (long)levelNumer];
     CCLOG(@"MapLayer.loadMap: (%@)", mapName);
     
     tiledMap = [CCTMXTiledMap tiledMapWithTMXFile:mapName];
@@ -273,6 +273,7 @@
  *-----------------------------------------------------------------------------------------------*/ 
 -(id)initWithSetup:(NSInteger)levelNumer{
 	
+    mapNumber = levelNumer;
 	if(!(self = [super init])){
 		NSLog(@"MapLayer.init fail");
 		return nil;
@@ -283,7 +284,6 @@
         return nil;
     }
     
-    mapNumber = levelNumer;
     startLocation = CGRectZero;
     endLocation = CGRectZero;
     CGSize winSize = [[CCDirector sharedDirector]winSize];
