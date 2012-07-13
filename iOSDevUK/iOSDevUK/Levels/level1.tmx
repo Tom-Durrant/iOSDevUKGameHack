@@ -21,11 +21,11 @@
  </layer>
  <layer name="enemies" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1skJACAMBEAfNmD/zYoNCB54zkC+IWQfSQgAAAAAAAAAAAAAAAAAAAAAAP9Kuwf4kJ0DALTzQwEvibsHgEXK/Y6V6u1Jv9l5MEYe57H/O8gIAAAAAAAAAAAAAAAAAABgnQwRuAC6
+   eJzt2DERAAAIAzEG/GtGBXAHiYKfOjQCAAAAAAAAAAAAAAAAAAAAAJiU2wEAAAAAALTyAwPcZucBAAAAAAAAAAAAAAAAAOCHAvgdAA0=
   </data>
  </layer>
  <objectgroup name="special" width="100" height="100">
-  <object name="start" x="937" y="1601" width="32" height="32"/>
+  <object name="start" x="917" y="1549" width="32" height="32"/>
   <object name="goal" x="2159" y="1797" width="32" height="32"/>
  </objectgroup>
 </map>

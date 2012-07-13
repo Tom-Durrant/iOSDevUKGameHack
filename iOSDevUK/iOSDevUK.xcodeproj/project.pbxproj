@@ -572,12 +572,12 @@
 				17F3BCB515AF766D003C90F5 /* GameSessionManager.m */,
 				05633AEF15AFB17000A0E9B0 /* WGStatusLayer.h */,
 				05633AF015AFB17000A0E9B0 /* WGStatusLayer.m */,
+				05890FE015AFDC6D00BDB1D7 /* WGGameOverLayer.h */,
+				05890FE115AFDC6D00BDB1D7 /* WGGameOverLayer.m */,
 				2B62CFFA15AF8C1A001D7835 /* PreGameSetupViewControllers */,
 				1712B8B715AF47C10009D3B1 /* Resources */,
 				1712B8D115AF47C10009D3B1 /* libs */,
 				1712BA2A15AF47C30009D3B1 /* Supporting Files */,
-				05890FE015AFDC6D00BDB1D7 /* WGGameOverLayer.h */,
-				05890FE115AFDC6D00BDB1D7 /* WGGameOverLayer.m */,
 			);
 			path = iOSDevUK;
 			sourceTree = "<group>";

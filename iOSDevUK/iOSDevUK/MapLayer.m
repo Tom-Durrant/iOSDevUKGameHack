@@ -303,7 +303,7 @@
         CCLOG(@"type:(%@) (%f,%f) (%fx%f)", type, rawX, rawY, width, height);
         if([type compare:@"start"] == NSOrderedSame){
             CCLOG(@"start");
-            startLocation = CGRectMake(rawX, rawY, width, height);
+            startLocation = CGRectMake(rawX, tiledMap.mapSize.height - rawY, width, height);
         } else if([type compare:@"goal"] == NSOrderedSame){
             CCLOG(@"goal");
             endLocation = CGRectMake(rawX, rawY, width, height);

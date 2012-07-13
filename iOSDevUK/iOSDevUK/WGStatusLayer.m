@@ -7,11 +7,11 @@
 //
 
 #import "WGStatusLayer.h"
+#import "GameLayer.h"
 
 
 @implementation WGStatusLayer
 @synthesize health, maxHealth;
-
 
 
 /*-----------------------------------------------------------------------------------------------

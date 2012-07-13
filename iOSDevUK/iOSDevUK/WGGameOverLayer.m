@@ -23,6 +23,83 @@
 }
 
 /*-----------------------------------------------------------------------------------------------
+ * Next level
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)playPressed{
+    CCLOG(@"replay");
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+ * See what they touched!
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)handleTouch:(CGPoint)point{
+	
+	for(CCNode *child in self.children){
+		if(child.tag == 1234 && CGRectContainsPoint(child.boundingBox, point)){
+			CCLOG(@"replay pressed");
+			[self playPressed];
+            //} else if(child.tag == tagButtonStart && CGRectContainsPoint(child.boundingBox, point)){
+            //	CCLOG(@"play pressed");
+            //	[self startGame];
+        }
+    }
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+ * ccTouchEnded
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+	//NSLog(@"touch ended");
+	
+	//[self handleTouch:touch];
+	
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+ * ccTouchBegan
+ *-----------------------------------------------------------------------------------------------*/ 
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+	CCLOG(@"ccTouchBegan");
+	
+	// Convert the touch to our co-ordinate system
+	CGPoint point = [self convertTouchToNodeSpace:touch];
+	
+	[self handleTouch:point];
+	
+	//NSLog(@"<--touch began");
+	return YES;
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+ * onEnter
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)onEnter{
+	
+    
+	// Allow touches
+	[[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	[super onEnter];
+    
+    
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+ * onExit
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)onExit{
+	// Turn on the touch handler
+	[[CCDirector sharedDirector].touchDispatcher  removeDelegate:self];
+	[super onExit];
+    
+}
+
+
+/*-----------------------------------------------------------------------------------------------
  * Class constructor
  *-----------------------------------------------------------------------------------------------*/ 
 -(id)initWithSetup:(NSInteger)victory{
@@ -52,6 +129,11 @@
     [self addLabel:message offset:ccp(0, 1) colour:ccc3(100, 0, 0)];
     [self addLabel:message offset:ccp(0, -1) colour:ccc3(100, 0, 0)];
     [self addLabel:message offset:ccp(0, 0) colour:ccc3(255, 255, 255)];
+    
+    CCSprite *nextLevel = [CCSprite spriteWithFile:@"right.png"];
+    nextLevel.position = ccp(winSize.width * 0.5, winSize.height * 0.2);
+    [self addChild:nextLevel z:999 tag:1234];
+    [nextLevel runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCScaleTo actionWithDuration:0.5 scale:0.5], [CCScaleTo actionWithDuration:0.5 scale:1.5], nil]]];
     
     // Pause the game
     [[CCDirector sharedDirector]pause];
