@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//	[self beginGameWithPlayerType:1 andLevelNumber:1];
+	//[self beginGameWithPlayerType: kModePlayer2 andLevelNumber:1];
 	
 	return YES;
 }
@@ -85,8 +85,7 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
     
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-	[director_ pushScene: [IntroLayer scene]]; 
-    
+	[director_ pushScene: [IntroLayer sceneWithMode: playerType]];
 	
 	// Create a Navigation Controller with the Director
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];

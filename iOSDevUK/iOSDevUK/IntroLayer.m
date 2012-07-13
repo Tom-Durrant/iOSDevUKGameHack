@@ -17,15 +17,21 @@
 // HelloWorldLayer implementation
 @implementation IntroLayer
 
+@synthesize mode=_mode;
+
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene
-{
++(CCScene *) scene {
+    return [self sceneWithMode: kModeBoth];
+}
+
++(CCScene *)sceneWithMode:(WGMode)mode {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
 	IntroLayer *layer = [IntroLayer node];
-	
+    [layer setMode: mode];
+    
 	// add layer as a child to scene
 	[scene addChild: layer z:0 tag:1111];
 	
@@ -61,6 +67,6 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer sceneWithMode: kModeBoth] withColor:ccWHITE]];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer sceneWithMode: _mode] withColor:ccWHITE]];
 }
 @end
