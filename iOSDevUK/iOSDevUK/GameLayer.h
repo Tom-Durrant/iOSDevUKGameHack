@@ -34,6 +34,8 @@ typedef enum {
     WGStatusLayer *statusLayer;
     
     CCSprite *_dragon;
+    
+    ccTime lastUpdate;
 }
 
 @property (readonly) CCSprite *dragon;

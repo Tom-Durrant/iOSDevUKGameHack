@@ -36,6 +36,25 @@
     // See what's at the new location
     MapContentType mapContents = [mapLayer contentsAtPlayerScreenLocation:character.position];
     //CCLOG(@"contents at (%f,%f): %d", mapLocation.x, mapLocation.y, mapContents);
+    
+    switch (mapContents) {
+        case kMapContentEnemy:
+            [statusLayer adjustHealth:-1];
+            break;
+        case kMapContentTreasure:
+            [statusLayer adjustHealth:+1];
+            break;
+        case kMapContentWall:
+            [mapLayer scrollMapInGivenDirection: ccp(-direction.x, -direction.y)];
+            break;
+        default:
+            break;
+    }
+    
+    // Are we dead?
+    if(statusLayer.health <= 0)
+        CCLOG(@"Game Over");
+    
 }
 
 
@@ -185,6 +204,7 @@
 	[[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
     
 	[super onExit];
+    
 }
 
 
@@ -205,7 +225,7 @@
     
     [self setupGraphics];
     
-    statusLayer = [WGStatusLayer setupWithData:10 maxHealth:10];
+    statusLayer = [WGStatusLayer setupWithData:20 maxHealth:20];
     [self addChild:statusLayer z:kGameLevelHUD tag:1024];
 
     return self;
