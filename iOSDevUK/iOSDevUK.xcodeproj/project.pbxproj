@@ -165,6 +165,7 @@
 		2B62D01215AF9281001D7835 /* WGConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62D00F15AF9281001D7835 /* WGConnectViewController.m */; };
 		2B62D01315AF9281001D7835 /* WGSelectPlayerModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62D01015AF9281001D7835 /* WGSelectPlayerModeViewController.m */; };
 		2BA7C5E915AFACBD00D5A160 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B62D00515AF8C36001D7835 /* Storyboard.storyboard */; };
+		2BEF74A815AFF9C000CFA0A7 /* DragonWallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEF74A715AFF9C000CFA0A7 /* DragonWallpaper.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -472,6 +473,7 @@
 		2B62D00E15AF9281001D7835 /* ChooseLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLevelViewController.m; sourceTree = "<group>"; };
 		2B62D00F15AF9281001D7835 /* WGConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGConnectViewController.m; sourceTree = "<group>"; };
 		2B62D01015AF9281001D7835 /* WGSelectPlayerModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGSelectPlayerModeViewController.m; sourceTree = "<group>"; };
+		2BEF74A715AFF9C000CFA0A7 /* DragonWallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DragonWallpaper.png; path = Resources/DragonWallpaper.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +590,7 @@
 		1712B8B715AF47C10009D3B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2BEF74A715AFF9C000CFA0A7 /* DragonWallpaper.png */,
 				05E530AB15AF80E700CDEB7D /* Game Resources */,
 				1712B8B815AF47C10009D3B1 /* Default.png */,
 				1712B8BA15AF47C10009D3B1 /* Default-Landscape~ipad.png */,
@@ -1049,6 +1052,7 @@
 				05890FF215AFED1600BDB1D7 /* treasure.caf in Resources */,
 				0589100315AFF0E900BDB1D7 /* death.flac in Resources */,
 				0589100A15AFFCA600BDB1D7 /* strength_bar.png in Resources */,
+				2BEF74A815AFF9C000CFA0A7 /* DragonWallpaper.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

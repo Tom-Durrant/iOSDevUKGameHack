@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="bDX-rp-76t">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development version="4200" defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
@@ -14,9 +15,9 @@
                         <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default-Landscape~ipad.png" id="Bsm-ut-efh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DragonWallpaper.png" id="Bsm-ut-efh">
                                 <rect key="frame" x="0.0" y="-44" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ver-a2-OFz">
                                 <rect key="frame" x="386" y="584" width="300" height="120"/>
@@ -161,7 +162,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default-Landscape~ipad.png" width="1024" height="768"/>
+        <image name="DragonWallpaper.png" width="256" height="192"/>
         <image name="button.png" width="300" height="120"/>
     </resources>
     <classes>
