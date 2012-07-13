@@ -33,13 +33,9 @@ typedef enum {
     CCSprite *_dragon;
 }
 
-<<<<<<< HEAD
 @property (readonly) CCSprite *dragon;
 
 +(id)setupWithData;
-=======
-+(id)setupWithData; 
->>>>>>> Dean unknown commit
 
 -(void)moveCharacter:(CGPoint)direction;
 

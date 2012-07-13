@@ -32,11 +32,10 @@
     
     // Get the map location for the character
     CCSprite *character = (CCSprite *)[self getChildByTag:tagDragon];
-    CGPoint mapLocation = [mapLayer convertScreenLocationToMapLocation:character.position];
     
     // See what's at the new location
-    MapContentType mapContents = [mapLayer contentAtLocation:mapLocation];
-    CCLOG(@"contents at (%f,%f): %d", mapLocation.x, mapLocation.y, mapContents);
+    MapContentType mapContents = [mapLayer contentsAtPlayerScreenLocation:character.position];
+    //CCLOG(@"contents at (%f,%f): %d", mapLocation.x, mapLocation.y, mapContents);
 }
 
 
@@ -135,7 +134,7 @@
 
     // Create the dragon sprite
     _dragon = [CCSprite spriteWithSpriteFrameName:@"dragon1.png"];
-    _dragon.anchorPoint = ccp(1, 1);
+    //_dragon.anchorPoint = ccp(1, 1);
     _dragon.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 
     // Create the animation
@@ -199,7 +198,7 @@
         NSLog(@"GameLayer.init failed");
         return nil;
     }
-	mapLayer = [MapLayer setupWithData:0];
+	mapLayer = [MapLayer setupWithData:1];
 
     tagMap = [self nextTag];
     [self addChild:mapLayer z:kGameLevelMap tag:tagMap];

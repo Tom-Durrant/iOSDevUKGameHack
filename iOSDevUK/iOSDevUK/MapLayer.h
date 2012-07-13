@@ -26,12 +26,15 @@ typedef enum{
     NSInteger mapNumber;
 	CCTMXTiledMap *tiledMap;
     CGSize mapSize;
+    CCLabelTTF *hitDisplay;
+    CGRect startLocation, endLocation;
 }
+@property(nonatomic, readonly) CGRect startLocation, endLocation;
+
 
 +(id)setupWithData:(NSInteger)levelNumer;
 
--(MapContentType)contentAtLocation:(CGPoint)mapLocation;
+-(MapContentType)contentsAtPlayerScreenLocation:(CGPoint)screenLocation;
 -(void)scrollMapInGivenDirection:(CGPoint)offset;
--(CGPoint)convertScreenLocationToMapLocation:(CGPoint)screenLocation;
 
 @end
