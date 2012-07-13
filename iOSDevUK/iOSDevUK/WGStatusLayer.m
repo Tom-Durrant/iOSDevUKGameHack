@@ -18,6 +18,28 @@
  * Adjust the health up or down
  *-----------------------------------------------------------------------------------------------*/ 
 -(void)adjustHealth:(NSInteger)changedAmount{
+    
+    health += changedAmount;
+    if(health < 0)
+        health = 0;
+    if(health > maxHealth)
+        health = maxHealth;
+    
+    for(NSInteger loop = 0; loop < maxHealth; loop++){
+        CCSprite *bar = (CCSprite *)[self getChildByTag:100 + loop];
+        if(loop + 1 <= health)
+            bar.visible = YES;
+        else
+            bar.visible = NO;
+
+        if(health <= maxHealth * 0.2)
+            bar.color = ccc3(200, 0, 0);
+        else if(health <= maxHealth * 0.5)
+            bar.color = ccc3(200, 100, 0);
+        else
+            bar.color = ccc3(0, 200, 0);
+    }
+    
 }
 
 

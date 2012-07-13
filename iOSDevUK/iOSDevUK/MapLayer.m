@@ -14,6 +14,34 @@
 
 
 /*-----------------------------------------------------------------------------------------------
+ * Remove the tile at the given location
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)removeTile:(CGPoint)mapLocation tileType:(MapContentType)contentType{
+    
+    // Work out what layer we want
+    CCTMXLayer *layer;
+    switch (contentType) {
+        case kMapContentEnemy:
+            layer = [tiledMap layerNamed:@"enemies"];
+            break;
+        case kMapContentTreasure:
+            layer = [tiledMap layerNamed:@"treasure"];
+            break;
+        case kMapContentWall:
+            layer = [tiledMap layerNamed:@"walls"];
+            break;
+        default:
+            // Abort
+            return;
+    }
+
+    CCLOG(@"remove (%f,%f)", mapLocation.x, mapLocation.y);
+    [layer removeTileAt:mapLocation];
+    
+}
+
+
+/*-----------------------------------------------------------------------------------------------
  * Scroll the map the number of pixels in the given delta direction
  *-----------------------------------------------------------------------------------------------*/ 
 -(void)scrollMapInGivenDirection:(CGPoint)offset{
@@ -32,6 +60,12 @@
     CGPoint adjustedOffset = ccpSub(screenLocation, tiledMap.position);
     
     CGPoint mapLocation = CGPointMake((NSInteger)(adjustedOffset.x / tiledMap.tileSize.width) + 1, (NSInteger)(mapSize.height - adjustedOffset.y / tiledMap.tileSize.height) + 1);
+    
+    /*
+    CCLOG(@"  (%f,%f)", mapLocation.x, mapLocation.y);
+    CCTMXLayer *enemyLayer = [tiledMap layerNamed:@"background"];
+	[enemyLayer removeTileAt:mapLocation];
+    */
     
     return mapLocation;
 }
@@ -97,10 +131,10 @@
     CGPoint adjustedOffset = ccpSub(screenLocation, tiledMap.position);
     
     CGFloat baseX = adjustedOffset.x / tiledMap.tileSize.width;
-    CGFloat baseY = adjustedOffset.y / tiledMap.tileSize.height;
+    CGFloat baseY = mapSize.height - adjustedOffset.y / tiledMap.tileSize.height;
     
-    CGPoint topLeft = ccp((NSInteger)baseX, (NSInteger)baseY + 1);
-    CGPoint topRight = ccp((NSInteger)baseX + 1, (NSInteger)baseY + 1);
+    CGPoint topLeft = ccp((NSInteger)baseX, (NSInteger)baseY - 1);
+    CGPoint topRight = ccp((NSInteger)baseX + 1, (NSInteger)baseY - 1);
     CGPoint bottomLeft = ccp((NSInteger)baseX, (NSInteger)baseY);
     CGPoint bottomRight = ccp((NSInteger)baseX + 1, (NSInteger)baseY);
     
@@ -109,16 +143,83 @@
     MapContentType contentsBottomRight = [self contentAtLocation:bottomRight];
     MapContentType contentsBottomLeft = [self contentAtLocation:bottomLeft];
     
+    BOOL hitEnemy = NO;
+    BOOL hitWall = NO;
+    BOOL hitTreasure = NO;
+    
+    switch (contentsTopRight) {
+        case kMapContentWall:
+            hitWall = YES;
+            break;
+        case kMapContentEnemy:
+            hitEnemy = YES;
+            break;
+        case kMapContentTreasure:
+            hitTreasure = YES;
+            [self removeTile:topRight tileType:contentsTopRight];
+            break;
+        default:
+            break;
+    }
+    switch (contentsTopLeft) {
+        case kMapContentWall:
+            hitWall = YES;
+            break;
+        case kMapContentEnemy:
+            hitEnemy = YES;
+            break;
+        case kMapContentTreasure:
+            hitTreasure = YES;
+            [self removeTile:topLeft tileType:contentsTopLeft];
+            break;
+        default:
+            break;
+    }
+    switch (contentsBottomRight) {
+        case kMapContentWall:
+            hitWall = YES;
+            break;
+        case kMapContentEnemy:
+            hitEnemy = YES;
+            break;
+        case kMapContentTreasure:
+            hitTreasure = YES;
+            [self removeTile:bottomRight tileType:contentsBottomRight];
+            break;
+        default:
+            break;
+    }
+    switch (contentsBottomLeft) {
+        case kMapContentWall:
+            hitWall = YES;
+            break;
+        case kMapContentEnemy:
+            hitEnemy = YES;
+            break;
+        case kMapContentTreasure:
+            hitTreasure = YES;
+            [self removeTile:bottomLeft tileType:contentsBottomLeft];
+            break;
+        default:
+            break;
+    }
+    
     MapContentType contents;
-    if(contentsTopRight == kMapContentEnemy || contentsTopLeft == kMapContentEnemy || contentsBottomLeft == kMapContentEnemy || contentsBottomRight == kMapContentEnemy) {
+    if(hitEnemy) {
         contents = kMapContentEnemy;
-    } else if (contentsTopRight == kMapContentWall || contentsTopLeft == kMapContentWall || contentsBottomLeft == kMapContentWall || contentsBottomRight == kMapContentWall) {
+    } else if (hitWall) {
         contents = kMapContentWall;
-    } else if (contentsTopRight == kMapContentTreasure || contentsTopLeft == kMapContentTreasure || contentsBottomLeft == kMapContentTreasure || contentsBottomRight == kMapContentTreasure) {
+    } else if (hitTreasure) {
         contents = kMapContentTreasure;
     } else {
         contents = kMapContentBlank;
     }
+    
+    /*
+    CCLOG(@"  (%f,%f)", topLeft.x, topLeft.y);
+    CCTMXLayer *enemyLayer = [tiledMap layerNamed:@"background"];
+	[enemyLayer removeTileAt:topLeft];
+*/
     
     return contents;
 }

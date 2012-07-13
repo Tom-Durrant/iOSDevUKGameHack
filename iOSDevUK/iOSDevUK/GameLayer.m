@@ -22,6 +22,13 @@
 }
 
 
+/*-----------------------------------------------------------------------------------------------
+ * Get the current map position
+ *-----------------------------------------------------------------------------------------------*/ 
+-(CGPoint)getCurrentMapPosition{
+    return mapLayer.position;
+}
+
 
 /*-----------------------------------------------------------------------------------------------
  * Move the dragon
@@ -36,6 +43,39 @@
     // See what's at the new location
     MapContentType mapContents = [mapLayer contentsAtPlayerScreenLocation:character.position];
     //CCLOG(@"contents at (%f,%f): %d", mapLocation.x, mapLocation.y, mapContents);
+    
+    CGPoint mapLocation = [mapLayer convertScreenLocationToMapLocation:character.position];
+    switch (mapContents) {
+        case kMapContentEnemy:
+            CCLOG(@"enemy");
+            [statusLayer adjustHealth:-1];
+            break;
+        case kMapContentTreasure:
+            CCLOG(@"treasure");
+            [statusLayer adjustHealth:+1];
+            //[mapLayer removeTile:mapLocation tileType:mapContents];
+            break;
+        case kMapContentWall:
+            CCLOG(@"wall");
+            [mapLayer scrollMapInGivenDirection: ccp(-direction.x, -direction.y)];
+            break;
+        default:
+            break;
+    }
+    
+    // Are we dead?
+    if(statusLayer.health <= 0)
+        CCLOG(@"Game Over");
+    
+}
+
+
+/*-----------------------------------------------------------------------------------------------
+ * Move the dragon to the given position - allows for updates after network drops
+ *-----------------------------------------------------------------------------------------------*/ 
+-(void)moveCharacterToPosition:(CGPoint)position{
+    CGPoint difference = ccpSub(position, _dragon.position);
+    [self moveCharacter:difference];
 }
 
 
@@ -185,6 +225,7 @@
 	[[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
     
 	[super onExit];
+    
 }
 
 
@@ -205,7 +246,7 @@
     
     [self setupGraphics];
     
-    statusLayer = [WGStatusLayer setupWithData:10 maxHealth:10];
+    statusLayer = [WGStatusLayer setupWithData:20 maxHealth:20];
     [self addChild:statusLayer z:kGameLevelHUD tag:1024];
 
     return self;

@@ -34,6 +34,8 @@ typedef enum {
     WGStatusLayer *statusLayer;
     
     CCSprite *_dragon;
+    
+    ccTime lastUpdate;
 }
 
 @property (readonly) CCSprite *dragon;
@@ -41,5 +43,7 @@ typedef enum {
 +(id)setupWithData;
 
 -(void)moveCharacter:(CGPoint)direction;
+-(void)moveCharacterToPosition:(CGPoint)position;
+-(CGPoint)getCurrentMapPosition;
 
 @end

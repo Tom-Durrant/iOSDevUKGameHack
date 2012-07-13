@@ -36,5 +36,7 @@ typedef enum{
 
 -(MapContentType)contentsAtPlayerScreenLocation:(CGPoint)screenLocation;
 -(void)scrollMapInGivenDirection:(CGPoint)offset;
+-(void)removeTile:(CGPoint)mapLocation tileType:(MapContentType)contentType;
+-(CGPoint)convertScreenLocationToMapLocation:(CGPoint)screenLocation;
 
 @end
