@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "MapLayer.h"
+#import "WGStatusLayer.h"
 
 typedef enum {
     kGameLevelError = 0,
@@ -29,6 +30,8 @@ typedef enum {
     
     NSInteger tagMap, tagDragon;
     NSInteger tagLeft, tagRight, tagDown, tagUp;
+    
+    WGStatusLayer *statusLayer;
     
     CCSprite *_dragon;
 }

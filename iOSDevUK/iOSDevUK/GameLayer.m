@@ -205,6 +205,9 @@
     
     [self setupGraphics];
     
+    statusLayer = [WGStatusLayer setupWithData:10 maxHealth:10];
+    [self addChild:statusLayer z:kGameLevelHUD tag:1024];
+
     return self;
 }
 
