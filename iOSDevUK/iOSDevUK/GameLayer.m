@@ -72,7 +72,7 @@
     }
     
     // Are we dead?
-    if(statusLayer.health <= 0){
+    if(!gameOver && statusLayer.health <= 0){
         CCLOG(@"Game Over");
         gameOver = YES;
         
