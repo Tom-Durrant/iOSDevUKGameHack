@@ -36,6 +36,8 @@ typedef enum {
     CCSprite *_dragon;
     
     ccTime lastUpdate;
+    
+    BOOL gameOver;
 }
 
 @property (readonly) CCSprite *dragon;

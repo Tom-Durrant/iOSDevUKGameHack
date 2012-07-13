@@ -35,7 +35,7 @@
             return;
     }
 
-    CCLOG(@"remove (%f,%f)", mapLocation.x, mapLocation.y);
+    //CCLOG(@"remove (%f,%f)", mapLocation.x, mapLocation.y);
     [layer removeTileAt:mapLocation];
     
 }
@@ -127,21 +127,27 @@
             contents = kMapContentEnemy;
         } else {
             
-            CCTMXLayer *treasureLayer = [tiledMap layerNamed:@"treasure"];
-            graphicId = [treasureLayer tileGIDAt:mapLocation];
+            CCTMXLayer *hazardLayer = [tiledMap layerNamed:@"hazard"];
+            graphicId = [hazardLayer tileGIDAt:mapLocation];
             if(graphicId > 0) {
-                contents = kMapContentTreasure;
+                contents = kMapContentEnemy;
             } else{
-                
-                CCTMXLayer *wallLayer = [tiledMap layerNamed:@"walls"];
-                graphicId = [wallLayer tileGIDAt:mapLocation];
-                if(graphicId > 0)
-                    contents = kMapContentWall;
+                CCTMXLayer *treasureLayer = [tiledMap layerNamed:@"treasure"];
+                graphicId = [treasureLayer tileGIDAt:mapLocation];
+                if(graphicId > 0) {
+                    contents = kMapContentTreasure;
+                } else{
+                    
+                    CCTMXLayer *wallLayer = [tiledMap layerNamed:@"walls"];
+                    graphicId = [wallLayer tileGIDAt:mapLocation];
+                    if(graphicId > 0)
+                        contents = kMapContentWall;
+                }
             }
         }
     }
     
-    [hitDisplay setString:[self decodeContents:contents]];
+    //[hitDisplay setString:[self decodeContents:contents]];
     
     return contents;
 }
@@ -345,7 +351,7 @@
     
     tiledMap.position = ccp(- startLocation.origin.x * tiledMap.tileSize.width + winSize.width * 0.5, - (tiledMap.mapSize.height - startLocation.origin.y) * tiledMap.tileSize.height + winSize.height * 0.5);
 
-    hitDisplay = [CCLabelTTF labelWithString:@"test" fontName:@"Verdana" fontSize:12];
+    hitDisplay = [CCLabelTTF labelWithString:@"" fontName:@"Verdana" fontSize:12];
     hitDisplay.position = ccp(winSize.width * 0.5, winSize.height * 0.85);
     hitDisplay.anchorPoint = ccp(0.5, 1);
     [self addChild:hitDisplay z:1];

@@ -6,7 +6,7 @@
  </tileset>
  <layer name="background" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0bENwDAMA0F6/6XTB0hnGIx8xfUvaiVZAAAAAAAAAAAAAAAAAADwIQUN09gUgLcUNMAkKWjA/+FPUtAAu6WgAT+73W0/ve1eGwIAAPRJQQOckIKGRjt2se08fmpfOC0FDQAAAAAAAAAAAAAAALs9SzAm/w==
+   eJztwwEJAAAMBKH7/qUHy6Hgqqmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv8AX0MnEQ==
   </data>
  </layer>
  <layer name="walls" width="100" height="100">
@@ -16,12 +16,12 @@
  </layer>
  <layer name="treasure" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJzt10EOgCAMBEB+4Mn/f9W76MGkjdDOPIDALg1hDAAAAAAAAAAAAAAAAAAAeHf+vYGCZArAnbcBYpmp3vQP35kbVnEEruVe70dn9XTrtNt5M8hwP5FvN3n0BADQh38VXbjrzyJykW09Os0lX5iZCwAAAAAAAAAAAAAAoKILK9gBqA==
   </data>
  </layer>
  <layer name="enemies" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1TENAAAMAkGG+tdcEU3ocqfgF0ICAAAAAAAAAAAAAAAAAAAAAAAAAADQMd8B8MwGALjwIwAAAAAAAAAAAAAAAAAAAD0LwW0ADQ==
+   eJzt1sEJADAIA0AfXaD7L+sEfZSCQr2bIAjBRAAAAAAAAAAAAAAAAAAAAAAAzLW7Awzk5gAA92wo4CerOwAUOf3vlw7YBADYUgAAAAAAAAAAAAAAAAAAAHUSRu8AYg==
   </data>
  </layer>
  <objectgroup name="special" width="100" height="100">

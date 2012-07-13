@@ -7,6 +7,7 @@
 //
 
 #import "GameLayer.h"
+#import "SimpleAudioEngine.h"
 
 
 @implementation GameLayer
@@ -49,12 +50,14 @@
     switch (mapContents) {
         case kMapContentEnemy:
             CCLOG(@"enemy");
+            [[SimpleAudioEngine sharedEngine]playEffect:@"death.flac"];
             [statusLayer adjustHealth:-1];
             break;
         case kMapContentTreasure:
             CCLOG(@"treasure");
             [statusLayer adjustHealth:+1];
             //[mapLayer removeTile:mapLocation tileType:mapContents];
+            [[SimpleAudioEngine sharedEngine]playEffect:@"treasure.caf"];
             break;
         case kMapContentWall:
 //            CCLOG(@"wall");
@@ -65,8 +68,14 @@
     }
     
     // Are we dead?
-    if(statusLayer.health <= 0)
+    if(statusLayer.health <= 0){
         CCLOG(@"Game Over");
+        gameOver = YES;
+        
+        WGGameOverLayer *gameOverLayer = [WGGameOverLayer setupWithData:NO];
+        [self addChild:gameOverLayer z:9999];
+        return;
+    }
     
 }
 
@@ -201,7 +210,7 @@
     tagDragon = [self nextTag];
 	[self addChild: _dragon z:kGameLevelDragon tag:tagDragon];
     
-    [self addControls];
+    //[self addControls];
 }
 
 
@@ -241,7 +250,7 @@
         NSLog(@"GameLayer.init failed");
         return nil;
     }
-    
+    gameOver = NO;
     int levelNumber = [[[NSUserDefaults standardUserDefaults] valueForKey:@"levelNumber"] intValue];
 	mapLayer = [MapLayer setupWithData:levelNumber];
 
@@ -250,7 +259,7 @@
     
     [self setupGraphics];
     
-    self.statusLayer = [WGStatusLayer setupWithData:20 maxHealth:20];
+    statusLayer = [WGStatusLayer setupWithData:6 maxHealth:6];
     [self addChild:statusLayer z:kGameLevelHUD tag:1024];
 
     return self;
