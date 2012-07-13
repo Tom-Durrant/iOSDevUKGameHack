@@ -264,6 +264,84 @@
                 <key>sourceSize</key>
                 <string>{32,32}</string>
             </dict>
+            <key>zbody.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,182},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>zchris_price.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{38,182},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>zdave_addey.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{74,182},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>zgraham_lee.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,218},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>zleek.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{38,218},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
+            <key>zsheep.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{74,218},{32,32}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{32,32}}</string>
+                <key>sourceSize</key>
+                <string>{32,32}</string>
+            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -274,7 +352,7 @@
             <key>size</key>
             <string>{128,256}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:e091993311c19ffb539fe0c7dae8fc1a$</string>
+            <string>$TexturePacker:SmartUpdate:7dd4ad65a71e1ba2ff1684cee76162ea$</string>
             <key>textureFileName</key>
             <string>maptiles.png</string>
         </dict>
