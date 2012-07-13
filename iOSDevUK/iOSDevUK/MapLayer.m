@@ -34,7 +34,8 @@
             // Abort
             return;
     }
-    
+
+    CCLOG(@"remove (%f,%f)", mapLocation.x, mapLocation.y);
     [layer removeTileAt:mapLocation];
     
 }
@@ -142,12 +143,73 @@
     MapContentType contentsBottomRight = [self contentAtLocation:bottomRight];
     MapContentType contentsBottomLeft = [self contentAtLocation:bottomLeft];
     
+    BOOL hitEnemy = NO;
+    BOOL hitWall = NO;
+    BOOL hitTreasure = NO;
+    
+    switch (contentsTopRight) {
+        case kMapContentWall:
+            hitWall = YES;
+            break;
+        case kMapContentEnemy:
+            hitEnemy = YES;
+            break;
+        case kMapContentTreasure:
+            hitTreasure = YES;
+            [self removeTile:topRight tileType:contentsTopRight];
+            break;
+        default:
+            break;
+    }
+    switch (contentsTopLeft) {
+        case kMapContentWall:
+            hitWall = YES;
+            break;
+        case kMapContentEnemy:
+            hitEnemy = YES;
+            break;
+        case kMapContentTreasure:
+            hitTreasure = YES;
+            [self removeTile:topLeft tileType:contentsTopLeft];
+            break;
+        default:
+            break;
+    }
+    switch (contentsBottomRight) {
+        case kMapContentWall:
+            hitWall = YES;
+            break;
+        case kMapContentEnemy:
+            hitEnemy = YES;
+            break;
+        case kMapContentTreasure:
+            hitTreasure = YES;
+            [self removeTile:bottomRight tileType:contentsBottomRight];
+            break;
+        default:
+            break;
+    }
+    switch (contentsBottomLeft) {
+        case kMapContentWall:
+            hitWall = YES;
+            break;
+        case kMapContentEnemy:
+            hitEnemy = YES;
+            break;
+        case kMapContentTreasure:
+            hitTreasure = YES;
+            [self removeTile:bottomLeft tileType:contentsBottomLeft];
+            break;
+        default:
+            break;
+    }
+    
     MapContentType contents;
-    if(contentsTopRight == kMapContentEnemy || contentsTopLeft == kMapContentEnemy || contentsBottomLeft == kMapContentEnemy || contentsBottomRight == kMapContentEnemy) {
+    if(hitEnemy) {
         contents = kMapContentEnemy;
-    } else if (contentsTopRight == kMapContentWall || contentsTopLeft == kMapContentWall || contentsBottomLeft == kMapContentWall || contentsBottomRight == kMapContentWall) {
+    } else if (hitWall) {
         contents = kMapContentWall;
-    } else if (contentsTopRight == kMapContentTreasure || contentsTopLeft == kMapContentTreasure || contentsBottomLeft == kMapContentTreasure || contentsBottomRight == kMapContentTreasure) {
+    } else if (hitTreasure) {
         contents = kMapContentTreasure;
     } else {
         contents = kMapContentBlank;

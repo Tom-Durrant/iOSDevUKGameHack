@@ -44,5 +44,6 @@ typedef enum {
 
 -(void)moveCharacter:(CGPoint)direction;
 -(void)moveCharacterToPosition:(CGPoint)position;
+-(CGPoint)getCurrentMapPosition;
 
 @end

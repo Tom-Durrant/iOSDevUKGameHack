@@ -23,6 +23,14 @@
 
 
 /*-----------------------------------------------------------------------------------------------
+ * Get the current map position
+ *-----------------------------------------------------------------------------------------------*/ 
+-(CGPoint)getCurrentMapPosition{
+    return mapLayer.position;
+}
+
+
+/*-----------------------------------------------------------------------------------------------
  * Move the dragon
  *-----------------------------------------------------------------------------------------------*/ 
 -(void)moveCharacter:(CGPoint)direction {
@@ -45,7 +53,7 @@
         case kMapContentTreasure:
             CCLOG(@"treasure");
             [statusLayer adjustHealth:+1];
-            [mapLayer removeTile:mapLocation tileType:mapContents];
+            //[mapLayer removeTile:mapLocation tileType:mapContents];
             break;
         case kMapContentWall:
             CCLOG(@"wall");
