@@ -24,6 +24,8 @@
     
     GameLayer *_gameLayer;
     CCSprite *_arrowLeftRight, *_arrowUpDown;
+    
+    uint32_t ownTickStamp, otherTickStamp;
 }
 
 @property WGMode mode;

@@ -57,7 +57,7 @@
             break;
         case kMapContentWall:
 //            CCLOG(@"wall");
-//            [mapLayer scrollMapInGivenDirection: ccp(-direction.x, -direction.y)];
+            [mapLayer scrollMapInGivenDirection: ccp(-direction.x, -direction.y)];
             break;
         default:
             break;

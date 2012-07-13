@@ -27,6 +27,12 @@
 struct dragonStatus {
 CGPoint location, deltas;
 CGFloat angle;
+uint32_t tickStamp;
+};
+
+struct floatStatus {
+CGFloat theFloat;
+uint32_t tickStamp;
 };
 
 @interface HelloWorldLayer ()
@@ -224,6 +230,7 @@ CGFloat angles[3][3] = {
     [_gameLayer moveCharacter: pos];
     [[_gameLayer dragon] setRotation: _CurrentAngle + 90.0f];
     
+    
     if(_mode == kModeServer) [self sendDragonStatus];
 //*/
 }
@@ -293,6 +300,8 @@ CGFloat angles[3][3] = {
     status.location = [_gameLayer getCurrentMapPosition];
     status.deltas = CGPointMake([WGPlayer1 shared].deltaX, [WGPlayer2 shared].deltaY);
     status.angle = _CurrentAngle;
+    status.tickStamp = ownTickStamp;
+    ownTickStamp++;
     
     int type = kServerDragonUpdate;
     NSMutableData *data = [NSMutableData dataWithBytes:&type length:sizeof(int)];
@@ -302,9 +311,15 @@ CGFloat angles[3][3] = {
 }
 
 -(void)sendFloat:(CGFloat)f {
+    struct floatStatus status;
+    status.theFloat = f;
+    status.tickStamp = ownTickStamp;
+    ownTickStamp++;
+    
     int type = kClientDragonUpdate;
     NSMutableData *data = [NSMutableData dataWithBytes:&type length:sizeof(int)];
-    [data appendBytes: &f length: sizeof(CGFloat)];
+    [data appendBytes:&status length:sizeof(status)];
+    
     [[GameSessionManager sharedManager] sendData: data];
 }
 
@@ -316,17 +331,26 @@ CGFloat angles[3][3] = {
     [data getBytes:&type length:sizeof(int)];
     
     if (type == kClientDragonUpdate) {
-        CGFloat f;
-        [data getBytes: &f range:NSMakeRange(sizeof(int), sizeof(float))];
-        [[WGPlayer2 shared] setDeltaY:f];
-        CCLOG(@"got float");
+        struct floatStatus status;
+        [data getBytes: &status range:NSMakeRange(sizeof(int), sizeof(status))];
+        if (status.tickStamp > otherTickStamp) {
+            [[WGPlayer2 shared] setDeltaY:status.theFloat];
+            otherTickStamp = status.tickStamp;
+        } else {
+            CCLOG(@"ticks out of sequence");
+        }
     } else if (type == kServerDragonUpdate) {
         struct dragonStatus status;
         [data getBytes: &status range:NSMakeRange(sizeof(int), sizeof(status))];
-        [_gameLayer moveCharacterToPosition:status.location];  
-        [[WGPlayer1 shared] setDeltaX:status.deltas.x];
-        [[WGPlayer2 shared] setDeltaY:status.deltas.y];
-        _CurrentAngle = status.angle;
+        if (status.tickStamp > otherTickStamp) {
+            [_gameLayer moveCharacterToPosition:status.location];  
+            [[WGPlayer1 shared] setDeltaX:status.deltas.x];
+            [[WGPlayer2 shared] setDeltaY:status.deltas.y];
+            _CurrentAngle = status.angle;
+            otherTickStamp = status.tickStamp;
+        } else {
+            CCLOG(@"ticks out of sequence");
+        }
 //        CCLOG(@"Loc: (%1.2f, %1.2f), Del: (%1.2f, %1.2f) Ang: %1.2f", status.location.x, status.location.y, status.deltas.x, status.deltas.y, status.angle);
         
     }
