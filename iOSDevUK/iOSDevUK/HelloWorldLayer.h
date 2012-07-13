@@ -23,6 +23,7 @@
     WGMode _mode;
     
     GameLayer *_gameLayer;
+    CCSprite *_arrowLeftRight, *_arrowUpDown;
 }
 
 @property WGMode mode;
