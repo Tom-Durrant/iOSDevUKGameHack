@@ -12,6 +12,7 @@
 @implementation GameLayer
 
 @synthesize dragon=_dragon;
+@synthesize statusLayer;
 
 /*-----------------------------------------------------------------------------------------------
  * Get the next sprite tag
@@ -249,7 +250,7 @@
     
     [self setupGraphics];
     
-    statusLayer = [WGStatusLayer setupWithData:20 maxHealth:20];
+    self.statusLayer = [WGStatusLayer setupWithData:20 maxHealth:20];
     [self addChild:statusLayer z:kGameLevelHUD tag:1024];
 
     return self;

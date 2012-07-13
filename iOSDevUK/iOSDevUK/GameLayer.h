@@ -39,6 +39,7 @@ typedef enum {
 }
 
 @property (readonly) CCSprite *dragon;
+@property (nonatomic, assign) WGStatusLayer *statusLayer;
 
 +(id)setupWithData;
 

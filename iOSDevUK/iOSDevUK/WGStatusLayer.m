@@ -42,6 +42,12 @@
     
 }
 
+- (void)setHealth:(NSInteger)newHealth
+{
+    int difference = health - newHealth;
+    
+    [self adjustHealth:difference];
+}
 
 /*-----------------------------------------------------------------------------------------------
  * Class constructor

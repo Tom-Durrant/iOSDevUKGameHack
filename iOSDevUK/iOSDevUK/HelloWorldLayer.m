@@ -27,6 +27,7 @@
 struct dragonStatus {
 CGPoint location, deltas;
 CGFloat angle;
+uint16_t health;
 uint32_t tickStamp;
 };
 
@@ -300,6 +301,7 @@ CGFloat angles[3][3] = {
     status.location = [_gameLayer getCurrentMapPosition];
     status.deltas = CGPointMake([WGPlayer1 shared].deltaX, [WGPlayer2 shared].deltaY);
     status.angle = _CurrentAngle;
+    status.health = _gameLayer.statusLayer.health;
     status.tickStamp = ownTickStamp;
     ownTickStamp++;
     
@@ -347,6 +349,7 @@ CGFloat angles[3][3] = {
             [[WGPlayer1 shared] setDeltaX:status.deltas.x];
             [[WGPlayer2 shared] setDeltaY:status.deltas.y];
             _CurrentAngle = status.angle;
+            _gameLayer.statusLayer.health = status.health;
             otherTickStamp = status.tickStamp;
         } else {
             CCLOG(@"ticks out of sequence");

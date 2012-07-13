@@ -14,7 +14,7 @@
     NSInteger health, maxHealth;
 }
 
-@property (nonatomic, readonly) NSInteger health, maxHealth;
+@property (nonatomic) NSInteger health, maxHealth;
 
 +(id)setupWithData:(NSInteger)initial maxHealth:(NSInteger)max;
 -(void)adjustHealth:(NSInteger)changedAmount;
