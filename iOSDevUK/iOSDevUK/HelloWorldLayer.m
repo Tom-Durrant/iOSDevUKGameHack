@@ -143,21 +143,21 @@ CGFloat angles[3][3] = {
 
 -(void)update:(ccTime)delta {
 
-    CGFloat dx, dy;
-    if(0.0f != (dx = [[WGPlayer1 shared] deltaX])) {
-        _vx = dx;
-    }
-    if(0.0f != (dy = [[WGPlayer2 shared] deltaY])) {
-        _vy = dy;
-    }
-    [_gameLayer moveCharacter: CGPointMake(_vx, _vy)];
-    
-    int x = (dx < 0.0f) ? 0 : ((dx > 0.0f) ? 2 : 1);
-    int y = (dy < 0.0f) ? 0 : ((dy > 0.0f) ? 2 : 1);
-    CGFloat angle = angles[x][y] - 90.0f;
-    [[_gameLayer dragon] setRotation: angle];
+//    CGFloat dx, dy;
+//    if(0.0f != (dx = [[WGPlayer1 shared] deltaX])) {
+//        _vx = dx;
+//    }
+//    if(0.0f != (dy = [[WGPlayer2 shared] deltaY])) {
+//        _vy = dy;
+//    }
+//    [_gameLayer moveCharacter: CGPointMake(_vx, _vy)];
+//    
+//    int x = (dx < 0.0f) ? 0 : ((dx > 0.0f) ? 2 : 1);
+//    int y = (dy < 0.0f) ? 0 : ((dy > 0.0f) ? 2 : 1);
+//    CGFloat angle = angles[x][y] - 90.0f;
+//    [[_gameLayer dragon] setRotation: angle];
 
-/*
+///*
     CGPoint pos = CGPointZero; // because _label.position;
     CGFloat dx = [[WGPlayer1 shared] deltaX];
     CGFloat dy = [[WGPlayer2 shared] deltaY];
@@ -211,7 +211,7 @@ CGFloat angles[3][3] = {
     
     [_gameLayer moveCharacter: pos];
     [[_gameLayer dragon] setRotation: _CurrentAngle + 90.0f];
-*/
+//*/
 }
 
 
