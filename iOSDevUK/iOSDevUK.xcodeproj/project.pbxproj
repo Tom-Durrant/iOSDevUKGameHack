@@ -1008,6 +1008,7 @@
 				05E530C115AF810C00CDEB7D /* up.png in Resources */,
 				05A4C39915AF922A0023983E /* level1.tmx in Resources */,
 				2BA7C5E915AFACBD00D5A160 /* Storyboard.storyboard in Resources */,
+				0540410815AFAD34002873D3 /* strength_bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
