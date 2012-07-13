@@ -17,6 +17,9 @@ typedef enum {
     kModeBoth,
     kModePlayer1,
     kModePlayer2,
+    
+    kModeServer = kModePlayer1,
+    kModeClient = kModePlayer2
 } WGMode;
 
 typedef enum {
