@@ -13,6 +13,7 @@
 		05890FE715AFDF7700BDB1D7 /* game_lost.png in Resources */ = {isa = PBXBuildFile; fileRef = 05890FE515AFDF7700BDB1D7 /* game_lost.png */; };
 		05890FF215AFED1600BDB1D7 /* treasure.caf in Resources */ = {isa = PBXBuildFile; fileRef = 05890FF115AFED1600BDB1D7 /* treasure.caf */; };
 		0589100315AFF0E900BDB1D7 /* death.flac in Resources */ = {isa = PBXBuildFile; fileRef = 0589100215AFF0E900BDB1D7 /* death.flac */; };
+		0589100A15AFFCA600BDB1D7 /* strength_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0589100915AFFCA600BDB1D7 /* strength_bar.png */; };
 		059B7CCD15AFD10E00B911EE /* goal.png in Resources */ = {isa = PBXBuildFile; fileRef = 059B7CCC15AFD10E00B911EE /* goal.png */; };
 		05E530A815AF80E100CDEB7D /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E530A515AF80E100CDEB7D /* GameLayer.m */; };
 		05E530A915AF80E100CDEB7D /* MapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E530A715AF80E100CDEB7D /* MapLayer.m */; };
@@ -175,6 +176,7 @@
 		05890FE515AFDF7700BDB1D7 /* game_lost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_lost.png; path = Resources/game_lost.png; sourceTree = "<group>"; };
 		05890FF115AFED1600BDB1D7 /* treasure.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = treasure.caf; path = Resources/treasure.caf; sourceTree = "<group>"; };
 		0589100215AFF0E900BDB1D7 /* death.flac */ = {isa = PBXFileReference; lastKnownFileType = file; name = death.flac; path = Resources/death.flac; sourceTree = "<group>"; };
+		0589100915AFFCA600BDB1D7 /* strength_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = strength_bar.png; path = Resources/strength_bar.png; sourceTree = "<group>"; };
 		059B7CCC15AFD10E00B911EE /* goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = goal.png; path = Resources/goal.png; sourceTree = "<group>"; };
 		05E530A415AF80E100CDEB7D /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		05E530A515AF80E100CDEB7D /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 		05E530AB15AF80E700CDEB7D /* Game Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0589100915AFFCA600BDB1D7 /* strength_bar.png */,
 				0589100215AFF0E900BDB1D7 /* death.flac */,
 				05890FF115AFED1600BDB1D7 /* treasure.caf */,
 				2B4067DF15AFD94200AFA508 /* Levels */,
@@ -1045,6 +1048,7 @@
 				05890FE715AFDF7700BDB1D7 /* game_lost.png in Resources */,
 				05890FF215AFED1600BDB1D7 /* treasure.caf in Resources */,
 				0589100315AFF0E900BDB1D7 /* death.flac in Resources */,
+				0589100A15AFFCA600BDB1D7 /* strength_bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
