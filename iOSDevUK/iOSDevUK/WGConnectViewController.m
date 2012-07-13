@@ -8,6 +8,7 @@
 
 #import "WGConnectViewController.h"
 #import "GameSessionManager.h"
+#import "AppDelegate.h"
 
 @interface WGConnectViewController () {
     bool observingConnectionNotification;
@@ -76,6 +77,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionEstablished) name:@"didConnect" object:nil];
     observingConnectionNotification = YES;
+}
+
+- (void)singlePlayerButtonPressed:(id)sender
+{
+    [((AppController *)[UIApplication sharedApplication].delegate) beginGameWithPlayerType:kModeBoth andLevelNumber:1];
 }
 
 @end

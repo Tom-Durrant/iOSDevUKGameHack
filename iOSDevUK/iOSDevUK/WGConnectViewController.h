@@ -13,5 +13,6 @@
 @property (nonatomic, assign) IBOutlet UIButton *connectButton;
 
 - (IBAction)connectButtonPressed:(id)sender;
+- (IBAction)singlePlayerButtonPressed:(id)sender;
 
 @end
